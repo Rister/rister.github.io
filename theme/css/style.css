@@ -1,0 +1,213 @@
+/*
+  risterio-simple theme stylesheet
+  This file will contain the CSS rules for the theme.
+*/
+
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+:root {
+    --accent-bg-color: #8FBC8F; /* DarkSeaGreen - a subdued olive drab */
+    --accent-text-color: #FFFFFF;
+    --accent-link-color: #E0E0E0; /* Lighter gray for links for subtle difference */
+    --accent-link-hover-color: #FFFFFF;
+}
+
+/* Site wrapper for centering */
+.container {
+    width: 80%;
+    max-width: 960px; /* Adjust max-width as needed */
+    margin: 0 auto; /* Centers the container */
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Semantic Section Styling */
+header, nav, footer { /* main and aside styling will be handled separately due to flexbox */
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 20px; /* Space between main and aside */
+    margin-bottom: 20px; /* Keep consistent margin */
+}
+
+main {
+    flex: 3; /* Takes 3 parts of the space */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+article {
+    background-color: #f9f9f9;
+    padding: 15px; /* Restore padding */
+    border: 1px solid #ddd; /* Restore border */
+    border-radius: 5px; /* Restore border-radius */
+    margin-bottom: 20px; /* Restore margin-bottom for spacing between articles if multiple */
+}
+
+aside {
+    flex: 1; /* Takes 1 part of the space */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f0f0f0; /* Keep original aside background */
+}
+
+
+header {
+    background-color: var(--accent-bg-color);
+    color: var(--accent-text-color);
+    padding: 20px 15px;
+    display: flex; /* Align logo and title/subtitle */
+    align-items: center; /* Vertical alignment */
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.site-logo {
+    max-height: 50px; /* Control logo size */
+    margin-right: 15px; /* Space between logo and text */
+    border-radius: 5px; /* Optional: if logo is square/rectangular */
+}
+
+header h1 {
+    margin: 0; /* Remove default margin */
+    font-size: 2em; /* Adjust as needed */
+}
+
+header h1 a {
+    color: var(--accent-text-color);
+    text-decoration: none;
+}
+
+header h1 a:hover {
+    color: var(--accent-link-hover-color);
+}
+
+header .subtitle { /* Changed from 'header p' to be more specific */
+    color: var(--accent-link-color); /* Using link color for subtitle for consistency */
+    font-size: 0.9em;
+    margin-top: 0;
+    margin-left: 5px; /* Indent subtitle slightly if logo is present */
+    flex-basis: 100%; /* Make subtitle take full width if it wraps */
+}
+
+
+nav {
+    background-color: var(--accent-bg-color);
+    padding: 10px 15px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Basic horizontal menu */
+}
+
+nav ul li {
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover, nav ul li.active a {
+    text-decoration: underline;
+}
+
+main {
+    /* Specific styles for main content area if needed */
+}
+
+article {
+    background-color: #f9f9f9;
+}
+
+aside {
+    background-color: #f0f0f0;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.9em;
+    background-color: var(--accent-bg-color);
+    color: var(--accent-text-color);
+}
+
+footer a {
+    color: var(--accent-link-color); /* Light blue for links in footer */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    header {
+        flex-direction: column; /* Stack logo and title */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .site-logo {
+        margin-bottom: 10px; /* Space below logo when stacked */
+    }
+
+    header h1 {
+        font-size: 1.8em; /* Slightly smaller title */
+    }
+
+    header .subtitle {
+        margin-left: 0; /* No indent for subtitle on small screens */
+        font-size: 0.8em;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack nav items */
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 5px; /* Space between stacked nav items */
+        width: 100%; /* Make nav items take full width */
+    }
+
+    nav ul li a {
+        display: block; /* Make link fill the li */
+        padding: 8px 0; /* Add some padding */
+    }
+
+    .content-wrapper {
+        flex-direction: column; /* Stack main content and aside */
+    }
+
+    main, aside {
+        flex: 1; /* Reset flex basis */
+        width: 100%; /* Full width for stacked items */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    /* Further reduce padding/margins for very small screens if necessary */
+}
