@@ -3,15 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if SITEDESCRIPTION %}
+    <meta name="description" content="{{ SITEDESCRIPTION }}">
+    {% endif %}
     <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+    {% if FAVICON %}
+    <link rel="shortcut icon" href="{{ SITEURL }}/{{ FAVICON }}" type="image/x-icon">
+    <link rel="icon" href="{{ SITEURL }}/{{ FAVICON }}" type="image/x-icon">
+    {% endif %}
     <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css">
 </head>
 <body>
 <div class="container">
     <header>
-        <h1><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
+        {% if SITEIMAGE %}
+        <a href="{{ SITEURL }}/"><img src="{{ SITEURL }}/{{ SITEIMAGE }}" alt="{{ SITENAME }} Logo" class="site-logo"></a>
+        {% endif %}
+        <h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>
         {% if SITESUBTITLE %}
-        <p>{{ SITESUBTITLE }}</p>
+        <p class="subtitle">{{ SITESUBTITLE }}</p>
         {% endif %}
     </header>
 

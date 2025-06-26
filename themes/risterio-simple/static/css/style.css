@@ -71,6 +71,20 @@ header {
     background-color: var(--accent-bg-color);
     color: var(--accent-text-color);
     padding: 20px 15px;
+    display: flex; /* Align logo and title/subtitle */
+    align-items: center; /* Vertical alignment */
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.site-logo {
+    max-height: 50px; /* Control logo size */
+    margin-right: 15px; /* Space between logo and text */
+    border-radius: 5px; /* Optional: if logo is square/rectangular */
+}
+
+header h1 {
+    margin: 0; /* Remove default margin */
+    font-size: 2em; /* Adjust as needed */
 }
 
 header h1 a {
@@ -82,9 +96,14 @@ header h1 a:hover {
     color: var(--accent-link-hover-color);
 }
 
-header p {
+header .subtitle { /* Changed from 'header p' to be more specific */
     color: var(--accent-link-color); /* Using link color for subtitle for consistency */
+    font-size: 0.9em;
+    margin-top: 0;
+    margin-left: 5px; /* Indent subtitle slightly if logo is present */
+    flex-basis: 100%; /* Make subtitle take full width if it wraps */
 }
+
 
 nav {
     background-color: var(--accent-bg-color);
@@ -131,5 +150,64 @@ footer {
 }
 
 footer a {
-    color: var(--accent-link-color) /* Light blue for links in footer */
+    color: var(--accent-link-color); /* Light blue for links in footer */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    header {
+        flex-direction: column; /* Stack logo and title */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    .site-logo {
+        margin-bottom: 10px; /* Space below logo when stacked */
+    }
+
+    header h1 {
+        font-size: 1.8em; /* Slightly smaller title */
+    }
+
+    header .subtitle {
+        margin-left: 0; /* No indent for subtitle on small screens */
+        font-size: 0.8em;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack nav items */
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 5px; /* Space between stacked nav items */
+        width: 100%; /* Make nav items take full width */
+    }
+
+    nav ul li a {
+        display: block; /* Make link fill the li */
+        padding: 8px 0; /* Add some padding */
+    }
+
+    .content-wrapper {
+        flex-direction: column; /* Stack main content and aside */
+    }
+
+    main, aside {
+        flex: 1; /* Reset flex basis */
+        width: 100%; /* Full width for stacked items */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    /* Further reduce padding/margins for very small screens if necessary */
 }
