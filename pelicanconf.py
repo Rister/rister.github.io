@@ -32,4 +32,4 @@ DEFAULT_PAGINATION = 10
 THEME = 'themes/risterio-simple'
 TEMPLATE_PAGES = {'../templates/base.html': 'base.html'}
 DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives'] # Add other templates as needed
-PAGINATED_DIRECT_TEMPLATES = ['index']
+PAGINATED_TEMPLATES = ['index'] # Updated from PAGINATED_DIRECT_TEMPLATES
