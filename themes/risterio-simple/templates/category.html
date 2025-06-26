@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME|striptags }} - Category: {{ category }}{% endblock %}
+
+{% block content %}
+    {% block content_title %}
+        <h2>Category: {{ category }}</h2>
+    {% endblock %}
+
+    {% if articles %}
+        {% for article in articles %} {# 'articles' is provided for category pages #}
+        <article>
+            <header>
+                <h3><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h3>
+                <p><small>
+                    Published: {{ article.locale_date }}
+                    {# Category link not needed here as we are on the category page #}
+                </small></p>
+            </header>
+            <section>
+                {{ article.summary }}
+                <a class="readmore" href="{{ SITEURL }}/{{ article.url }}">Read more...</a>
+            </section>
+        </article>
+        {% endfor %}
+    {% else %}
+        <p>No articles found in this category.</p>
+    {% endif %}
+{% endblock %}

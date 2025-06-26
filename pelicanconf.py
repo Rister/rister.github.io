@@ -2,6 +2,9 @@ AUTHOR = 'Test User'
 SITENAME = 'My Portfolio'
 SITEURL = ''
 
+import datetime
+CURRENTYEAR = datetime.date.today().year
+
 PATH = 'content'
 
 TIMEZONE = 'Europe/Paris'
@@ -29,7 +32,10 @@ DEFAULT_PAGINATION = 10
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
-THEME = 'theme'
-TEMPLATE_PAGES = {'../templates/base.html': 'base.html'}
+THEME = 'themes/risterio-simple' # Direct relative path to the theme
+# Removed THEME_PATHS
+# Removed THEME_TEMPLATES_OVERRIDES
+# TEMPLATE_PAGES = {'../templates/base.html': 'base.html'} # This line was incorrect and likely causing TypeErrors
+MENUITEMS = [] # Define MENUITEMS, even if empty, for themes that expect it.
 DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives'] # Add other templates as needed
-PAGINATED_DIRECT_TEMPLATES = ['index']
+PAGINATED_TEMPLATES = {'index': None} # Updated to dict format; None uses DEFAULT_PAGINATION

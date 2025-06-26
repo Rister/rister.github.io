@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME|striptags }} - {{ page.title|striptags }}{% endblock %}
+
+{% block content %}
+<article class="single-page">
+    <header>
+        <h2>{{ page.title }}</h2>
+        {# Pages don't typically have date/category/tags like articles #}
+    </header>
+    <section class="page-content">
+        {{ page.content }}
+    </section>
+</article>
+{% endblock %}
