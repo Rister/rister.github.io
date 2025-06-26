@@ -1,4 +1,4 @@
-AUTHOR = 'Test User'
+AUTHOR = 'Jeremy Rist'
 SITENAME = 'My Portfolio'
 SITEURL = ''
 
@@ -24,7 +24,7 @@ LINKS = (('Pelican', 'https://getpelican.com/'),
          ('Jinja2', 'https://palletsprojects.com/p/jinja/'),)
 
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
+SOCIAL = (('LinkedIn', 'https://www.linkedin.com/in/jeremy-rist-83096822/'),
           ('Another social link', '#'),)
 
 DEFAULT_PAGINATION = 10
