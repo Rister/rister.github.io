@@ -1,0 +1,9 @@
+/* TEAM */
+
+/* THANKS */
+
+/* SITE */
+Last update: 2025/06/26
+Standards: HTML5, CSS3
+Components: Pelican
+Software: Python
