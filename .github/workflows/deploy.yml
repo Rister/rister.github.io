@@ -1,0 +1,33 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x' # Or your project's Python version
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pelican markdown
+
+      - name: Build
+        run: pelican content -o output -s publishconf.py
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output # Pelican's default output directory
+          # external_repository: rister/rister.github.io # Uncomment if deploying to a different repository
+          # user_name: 'github-actions[bot]' # Optional: Custom committer name
+          # user_email: 'github-actions[bot]@users.noreply.github.com' # Optional: Custom committer email
