@@ -13,10 +13,10 @@ body {
 }
 
 :root {
-    --header-bg-color: #8FBC8F; /* DarkSeaGreen - a subdued olive drab */
-    --header-text-color: #FFFFFF;
-    --header-link-color: #E0E0E0; /* Lighter gray for links for subtle difference */
-    --header-link-hover-color: #FFFFFF;
+    --accent-bg-color: #8FBC8F; /* DarkSeaGreen - a subdued olive drab */
+    --accent-text-color: #FFFFFF;
+    --accent-link-color: #E0E0E0; /* Lighter gray for links for subtle difference */
+    --accent-link-hover-color: #FFFFFF;
 }
 
 /* Site wrapper for centering */
@@ -68,26 +68,26 @@ aside {
 
 
 header {
-    background-color: var(--header-bg-color);
-    color: var(--header-text-color);
+    background-color: var(--accent-bg-color);
+    color: var(--accent-text-color);
     padding: 20px 15px;
 }
 
 header h1 a {
-    color: var(--header-text-color);
+    color: var(--accent-text-color);
     text-decoration: none;
 }
 
 header h1 a:hover {
-    color: var(--header-link-hover-color);
+    color: var(--accent-link-hover-color);
 }
 
 header p {
-    color: var(--header-link-color); /* Using link color for subtitle for consistency */
+    color: var(--accent-link-color); /* Using link color for subtitle for consistency */
 }
 
 nav {
-    background-color: #444;
+    background-color: var(--accent-bg-color);
     padding: 10px 15px;
 }
 
@@ -126,11 +126,10 @@ aside {
 footer {
     text-align: center;
     font-size: 0.9em;
-    color: #777;
-    background-color: #333;
-    color: #fff;
+    background-color: var(--accent-bg-color);
+    color: var(--accent-text-color);
 }
 
 footer a {
-    color: #add8e6; /* Light blue for links in footer */
+    color: var(--accent-link-color) /* Light blue for links in footer */
 }
