@@ -1,40 +1,46 @@
 /*
-  risterio-simple theme stylesheet
-  This file will contain the CSS rules for the theme.
+  risterio-simple theme stylesheet - NEO-BRUTALIST STYLE
 */
 
 body {
-    font-family: sans-serif;
-    line-height: 1.6;
+    font-family: 'Arial Black', 'Arial Bold', sans-serif; /* Bold, impactful font */
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #FFFFFF; /* Stark white background */
+    color: #000000; /* Black text */
+    line-height: 1.6;
 }
 
 :root {
-    --accent-bg-color: #8FBC8F; /* DarkSeaGreen - a subdued olive drab */
-    --accent-text-color: #FFFFFF;
-    --accent-link-color: #E0E0E0; /* Lighter gray for links for subtle difference */
-    --accent-link-hover-color: #FFFFFF;
+    --accent-color: #FFFF00; /* Bright yellow accent */
+    --background-color: #FFFFFF;
+    --text-color: #000000;
+    --header-bg-color: #000000;
+    --header-text-color: #FFFFFF;
+    --footer-bg-color: #000000;
+    --footer-text-color: #FFFFFF;
+    --border-color: #000000;
+    --link-color: #0000FF; /* Standard blue for links, can be adjusted */
+    --link-hover-bg-color: #FFFF00;
+    --link-hover-text-color: #000000;
 }
 
 /* Site wrapper for centering */
 .container {
-    width: 80%;
-    max-width: 960px; /* Adjust max-width as needed */
+    width: 90%; /* Slightly wider for brutalist feel */
+    max-width: 1200px; /* Adjust max-width as needed */
     margin: 0 auto; /* Centers the container */
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: var(--background-color);
+    padding: 0; /* Remove padding, handle spacing with margins/borders */
+    /* box-shadow: 0 0 10px rgba(0,0,0,0.1); Removed soft shadow */
 }
 
 /* Semantic Section Styling */
-header, nav, footer { /* main and aside styling will be handled separately due to flexbox */
+header, nav, footer, main, aside {
     margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    padding: 1.5em; /* Uniform padding */
+    border: 3px solid var(--border-color); /* Thick, stark borders */
+    border-radius: 0; /* No rounded corners */
 }
 
 .content-wrapper {
@@ -45,169 +51,259 @@ header, nav, footer { /* main and aside styling will be handled separately due t
 
 main {
     flex: 3; /* Takes 3 parts of the space */
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    background-color: var(--background-color);
+    box-shadow: 10px 10px 0px var(--border-color); /* Hard shadow */
 }
 
 article {
-    background-color: #f9f9f9;
-    padding: 15px; /* Restore padding */
-    border: 1px solid #ddd; /* Restore border */
-    border-radius: 5px; /* Restore border-radius */
-    margin-bottom: 20px; /* Restore margin-bottom for spacing between articles if multiple */
+    background-color: var(--background-color);
+    padding: 1.5em;
+    border: 2px solid var(--border-color);
+    margin-bottom: 2em;
+    box-shadow: 8px 8px 0px #333333; /* Slightly softer hard shadow for articles */
 }
+
+article h2 {
+    margin-top: 0;
+}
+
+article h2 a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 2em;
+}
+
+article h2 a:hover {
+    color: var(--link-hover-text-color);
+    background-color: var(--link-hover-bg-color);
+}
+
+.article-info {
+    font-size: 0.9em;
+    color: #555555; /* Slightly lighter text for info */
+    margin-bottom: 1em;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5em;
+    text-transform: uppercase;
+}
+
 
 aside {
     flex: 1; /* Takes 1 part of the space */
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f0f0f0; /* Keep original aside background */
+    background-color: var(--background-color); /* Consistent background */
+    border: 3px solid var(--border-color);
+    padding: 1.5em;
+}
+
+aside h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.3em;
+    text-transform: uppercase;
+}
+
+aside ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+aside ul li a {
+    text-decoration: none;
+    color: var(--link-color);
+    display: block;
+    padding: 0.3em 0;
+    border-bottom: 1px dashed var(--border-color); /* Dashed border for links in aside */
+}
+aside ul li:last-child a {
+    border-bottom: none;
+}
+
+aside ul li a:hover {
+    color: var(--link-hover-text-color);
+    background-color: var(--link-hover-bg-color);
 }
 
 
 header {
-    background-color: var(--accent-bg-color);
-    color: var(--accent-text-color);
-    padding: 20px 15px;
-    display: flex; /* Align logo and title/subtitle */
-    align-items: center; /* Vertical alignment */
-    flex-wrap: wrap; /* Allow wrapping on small screens */
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
+    padding: 2em 1.5em; /* Generous padding */
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom-width: 5px; /* Thicker bottom border for header */
 }
 
 .site-logo {
-    max-height: 50px; /* Control logo size */
-    margin-right: 15px; /* Space between logo and text */
-    border-radius: 5px; /* Optional: if logo is square/rectangular */
+    max-height: 60px; /* Slightly larger logo */
+    margin-right: 20px;
+    border: 2px solid var(--accent-color); /* Accent border for logo */
 }
 
 header h1 {
-    margin: 0; /* Remove default margin */
-    font-size: 2em; /* Adjust as needed */
+    margin: 0;
+    font-size: 3em; /* Large, bold title */
+    font-weight: bold;
 }
 
 header h1 a {
-    color: var(--accent-text-color);
+    color: var(--header-text-color);
     text-decoration: none;
 }
 
 header h1 a:hover {
-    color: var(--accent-link-hover-color);
+    color: var(--accent-color); /* Accent color on hover */
 }
 
-header .subtitle { /* Changed from 'header p' to be more specific */
-    color: var(--accent-link-color); /* Using link color for subtitle for consistency */
-    font-size: 0.9em;
-    margin-top: 0;
-    margin-left: 5px; /* Indent subtitle slightly if logo is present */
-    flex-basis: 100%; /* Make subtitle take full width if it wraps */
+header .subtitle {
+    color: #CCCCCC; /* Lighter subtitle */
+    font-size: 1em;
+    margin-top: 0.2em;
+    margin-left: 5px;
+    flex-basis: 100%;
+    font-family: monospace; /* Monospace for subtitle for a raw feel */
 }
 
 
 nav {
-    background-color: var(--accent-bg-color);
-    padding: 10px 15px;
+    background-color: var(--background-color); /* Stark background for nav */
+    padding: 0; /* Padding handled by ul/li */
+    border-bottom-width: 3px;
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    display: flex; /* Basic horizontal menu */
+    display: flex;
+    justify-content: center; /* Center nav items */
 }
 
 nav ul li {
-    margin-right: 15px;
+    margin-right: 0; /* Remove margin, use borders for separation */
 }
 
 nav ul li a {
-    color: #fff;
+    color: var(--text-color);
     text-decoration: none;
+    padding: 1em 2em; /* Generous padding */
+    display: block;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-right: 3px solid var(--border-color);
+}
+nav ul li:last-child a {
+    border-right: none;
 }
 
 nav ul li a:hover, nav ul li.active a {
-    text-decoration: underline;
-}
-
-main {
-    /* Specific styles for main content area if needed */
-}
-
-article {
-    background-color: #f9f9f9;
-}
-
-aside {
-    background-color: #f0f0f0;
+    background-color: var(--accent-color);
+    color: var(--text-color);
 }
 
 footer {
     text-align: center;
-    font-size: 0.9em;
-    background-color: var(--accent-bg-color);
-    color: var(--accent-text-color);
+    font-size: 1em; /* Slightly larger footer text */
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    padding: 2em 1.5em;
+    border-top-width: 5px; /* Thicker top border for footer */
 }
 
 footer a {
-    color: var(--accent-link-color); /* Light blue for links in footer */
+    color: var(--accent-color); /* Accent color for links in footer */
+    text-decoration: underline;
 }
+footer a:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/* General links */
+a {
+    color: var(--link-color);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+a:hover {
+    color: var(--link-hover-text-color);
+    background-color: var(--link-hover-bg-color);
+    text-decoration: none;
+}
+
 
 /* Responsive Design Adjustments */
 @media (max-width: 768px) {
     .container {
         width: 95%;
-        padding: 10px;
     }
 
     header {
-        flex-direction: column; /* Stack logo and title */
-        align-items: flex-start; /* Align items to the start */
+        flex-direction: column;
+        align-items: center; /* Center header items on mobile */
+        text-align: center;
     }
 
     .site-logo {
-        margin-bottom: 10px; /* Space below logo when stacked */
+        margin-bottom: 10px;
+        margin-right: 0;
     }
 
     header h1 {
-        font-size: 1.8em; /* Slightly smaller title */
+        font-size: 2.5em;
     }
 
     header .subtitle {
-        margin-left: 0; /* No indent for subtitle on small screens */
-        font-size: 0.8em;
+        margin-left: 0;
+        text-align: center;
     }
 
     nav ul {
-        flex-direction: column; /* Stack nav items */
-        align-items: flex-start;
-    }
-
-    nav ul li {
-        margin-right: 0;
-        margin-bottom: 5px; /* Space between stacked nav items */
-        width: 100%; /* Make nav items take full width */
+        flex-direction: column;
+        align-items: stretch; /* Stretch nav items */
     }
 
     nav ul li a {
-        display: block; /* Make link fill the li */
-        padding: 8px 0; /* Add some padding */
+        border-right: none;
+        border-bottom: 3px solid var(--border-color);
+        text-align: center;
+    }
+
+    nav ul li:last-child a {
+        border-bottom: none;
     }
 
     .content-wrapper {
-        flex-direction: column; /* Stack main content and aside */
+        flex-direction: column;
     }
 
     main, aside {
-        flex: 1; /* Reset flex basis */
-        width: 100%; /* Full width for stacked items */
+        flex: 1;
+        width: auto; /* Let flexbox handle width */
+        margin-left: 0;
+        margin-right: 0;
+        box-shadow: 5px 5px 0px var(--border-color); /* Smaller shadow */
+    }
+
+    article {
+        box-shadow: 5px 5px 0px #333333;
     }
 }
 
 @media (max-width: 480px) {
     header h1 {
+        font-size: 2em;
+    }
+    header .subtitle {
+        font-size: 0.9em;
+    }
+    article h2 a {
         font-size: 1.5em;
     }
-
-    /* Further reduce padding/margins for very small screens if necessary */
+    main, header, nav, footer, aside, article {
+        padding: 1em;
+    }
 }
