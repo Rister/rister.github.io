@@ -19,3 +19,10 @@ dependencies = [
 # [project.urls]
 # Homepage = "https://example.com"
 # Repository = "https://github.com/user/project"
+
+[tool.hatch.build.targets.wheel]
+# Explicitly define the package directory.
+# This helps Hatch understand what to include, especially for projects
+# not following the traditional library structure (e.g., a Pelican site).
+# We'll point it to a conventional 'src' layout.
+packages = ["src/rister_github_io"]
