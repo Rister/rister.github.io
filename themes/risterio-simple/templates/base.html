@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
+        {% if SITESUBTITLE %}
+        <p>{{ SITESUBTITLE }}</p>
+        {% endif %}
+    </header>
+
+    <nav>
+        <ul>
+            {% for title, link in MENUITEMS %}
+            <li><a href="{{ link }}">{{ title }}</a></li>
+            {% endfor %}
+            {% if DISPLAY_PAGES_ON_MENU %}
+              {% for p in PAGES %}
+                <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+              {% endfor %}
+            {% endif %}
+            {% if DISPLAY_CATEGORIES_ON_MENU %}
+              {% for cat, null in categories %}
+                <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+              {% endfor %}
+            {% endif %}
+        </ul>
+    </nav>
+
+    <main>
+        {% block content %}
+        <!-- Content from individual pages will go here -->
+        {% endblock %}
+    </main>
+
+    <aside>
+        <h2>Links</h2>
+        <ul>
+            {% for title, link in LINKS %}
+            <li><a href="{{ link }}">{{ title }}</a></li>
+            {% endfor %}
+        </ul>
+
+        {% if SOCIAL %}
+        <h2>Social</h2>
+        <ul>
+            {% for name, link in SOCIAL %}
+            <li><a href="{{ link }}">{{ name }}</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </aside>
+
+    <footer>
+        <p>&copy; {% now 'Y' %} {{ AUTHOR }}. Powered by <a href="https://getpelican.com/">Pelican</a>.</p>
+    </footer>
+</div> <!-- Close container -->
+</body>
+</html>
