@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>My Portfolio - Blog</title><link href="http://localhost:8000/" rel="alternate"></link><link href="http://localhost:8000/feeds/blog.atom.xml" rel="self"></link><id>http://localhost:8000/</id><updated>2024-01-01T10:00:00+01:00</updated><subtitle>A Showcase of Projects and Skills</subtitle><entry><title>My First Post</title><link href="http://localhost:8000/my-first-post.html" rel="alternate"></link><published>2024-01-01T10:00:00+01:00</published><updated>2024-01-01T10:00:00+01:00</updated><author><name>Test User</name></author><id>tag:localhost,2024-01-01:/my-first-post.html</id><summary type="html">&lt;p class="first last"&gt;Short summary for my first post, demonstrating various reStructuredText features.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>My Portfolio - Blog</title><link href="https://rister.github.io/" rel="alternate"></link><link href="https://rister.github.io/feeds/blog.atom.xml" rel="self"></link><id>https://rister.github.io/</id><updated>2024-01-01T10:00:00+01:00</updated><subtitle>A Showcase of Projects and Skills</subtitle><entry><title>My First Post</title><link href="https://rister.github.io/my-first-post.html" rel="alternate"></link><published>2024-01-01T10:00:00+01:00</published><updated>2024-01-01T10:00:00+01:00</updated><author><name>Test User</name></author><id>tag:rister.github.io,2024-01-01:/my-first-post.html</id><summary type="html">&lt;p class="first last"&gt;Short summary for my first post, demonstrating various reStructuredText features.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;This is the content of my first post. Welcome to my new blog! We are exploring the capabilities of Pelican and reStructuredText.&lt;/p&gt;
 &lt;div class="section" id="exploring-features"&gt;
 &lt;h2&gt;Exploring Features&lt;/h2&gt;
@@ -22,7 +22,7 @@
 &lt;div class="section" id="adding-images"&gt;
 &lt;h3&gt;Adding Images&lt;/h3&gt;
 &lt;p&gt;You can also embed images in your posts. For example:&lt;/p&gt;
-&lt;img alt="A placeholder image" src="http://localhost:8000/images/placeholder.png" style="width: 200px;" /&gt;
+&lt;img alt="A placeholder image" src="https://rister.github.io/images/placeholder.png" style="width: 200px;" /&gt;
 &lt;p&gt;(Note: You would need to create a &lt;cite&gt;placeholder.png&lt;/cite&gt; in your &lt;cite&gt;content/static/images/&lt;/cite&gt; directory for this to work.)&lt;/p&gt;
 &lt;p&gt;We are now using reStructuredText and it's quite powerful!&lt;/p&gt;
 &lt;/div&gt;
