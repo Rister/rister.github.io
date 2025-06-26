@@ -12,6 +12,13 @@ body {
     color: #333;
 }
 
+:root {
+    --header-bg-color: #8FBC8F; /* DarkSeaGreen - a subdued olive drab */
+    --header-text-color: #FFFFFF;
+    --header-link-color: #E0E0E0; /* Lighter gray for links for subtle difference */
+    --header-link-hover-color: #FFFFFF;
+}
+
 /* Site wrapper for centering */
 .container {
     width: 80%;
@@ -23,26 +30,60 @@ body {
 }
 
 /* Semantic Section Styling */
-header, nav, main, article, aside, footer {
+header, nav, footer { /* main and aside styling will be handled separately due to flexbox */
     margin-bottom: 20px;
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
 
+.content-wrapper {
+    display: flex;
+    gap: 20px; /* Space between main and aside */
+    margin-bottom: 20px; /* Keep consistent margin */
+}
+
+main {
+    flex: 3; /* Takes 3 parts of the space */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+article {
+    background-color: #f9f9f9;
+    padding: 15px; /* Restore padding */
+    border: 1px solid #ddd; /* Restore border */
+    border-radius: 5px; /* Restore border-radius */
+    margin-bottom: 20px; /* Restore margin-bottom for spacing between articles if multiple */
+}
+
+aside {
+    flex: 1; /* Takes 1 part of the space */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f0f0f0; /* Keep original aside background */
+}
+
+
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
     padding: 20px 15px;
 }
 
 header h1 a {
-    color: #fff;
+    color: var(--header-text-color);
     text-decoration: none;
 }
 
+header h1 a:hover {
+    color: var(--header-link-hover-color);
+}
+
 header p {
-    color: #ccc;
+    color: var(--header-link-color); /* Using link color for subtitle for consistency */
 }
 
 nav {
