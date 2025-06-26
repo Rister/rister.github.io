@@ -32,7 +32,7 @@ DEFAULT_PAGINATION = 10
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
-THEME_PATHS = ['.', 'themes'] # Add 'themes' to explicitly search here
+THEME_PATHS = ['themes']      # Simplify to only include 'themes'
 THEME = 'risterio-simple'     # Now just the theme name
 THEME_TEMPLATES_OVERRIDES = ['themes/risterio-simple/templates'] # Attempt to force override
 # TEMPLATE_PAGES = {'../templates/base.html': 'base.html'} # This line was incorrect and likely causing TypeErrors
