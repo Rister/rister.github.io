@@ -36,4 +36,4 @@ THEME = 'themes/risterio-simple'
 # TEMPLATE_PAGES = {'../templates/base.html': 'base.html'} # This line was incorrect and likely causing TypeErrors
 MENUITEMS = [] # Define MENUITEMS, even if empty, for themes that expect it.
 DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives'] # Add other templates as needed
-PAGINATED_TEMPLATES = ['index'] # Updated from PAGINATED_DIRECT_TEMPLATES
+PAGINATED_TEMPLATES = {'index': None} # Updated to dict format; None uses DEFAULT_PAGINATION
