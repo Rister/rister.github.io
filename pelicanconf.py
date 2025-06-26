@@ -2,6 +2,9 @@ AUTHOR = 'Test User'
 SITENAME = 'My Portfolio'
 SITEURL = ''
 
+import datetime
+CURRENTYEAR = datetime.date.today().year
+
 PATH = 'content'
 
 TIMEZONE = 'Europe/Paris'
