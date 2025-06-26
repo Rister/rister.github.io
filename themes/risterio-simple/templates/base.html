@@ -33,7 +33,7 @@
         </ul>
     </nav>
 
-    <main>
+    <div class="content-wrapper"> <main>
         {% block content %}
         <!-- Content from individual pages will go here -->
         {% endblock %}
@@ -56,6 +56,7 @@
         </ul>
         {% endif %}
     </aside>
+    </div> <!-- Close content-wrapper -->
 
     <footer>
         <p>&copy; {{ CURRENTYEAR }} {{ AUTHOR }}. Powered by <a href="https://getpelican.com/">Pelican</a>.</p>
