@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME|striptags }} - Tag: {{ tag }}{% endblock %}
+
+{% block content %}
+    {% block content_title %}
+        <h2>Tag: {{ tag }}</h2>
+    {% endblock %}
+
+    {% if articles %}
+        {% for article in articles %} {# 'articles' is provided for tag pages #}
+        <article>
+            <header>
+                <h3><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h3>
+                <p><small>
+                    Published: {{ article.locale_date }}
+                    {% if article.category %}
+                    | Category: <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+                    {% endif %}
+                </small></p>
+            </header>
+            <section>
+                {{ article.summary }}
+                <a class="readmore" href="{{ SITEURL }}/{{ article.url }}">Read more...</a>
+            </section>
+        </article>
+        {% endfor %}
+    {% else %}
+        <p>No articles found for this tag.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME|striptags }} - Index{% endblock %}
+
+{% block content %}
+    {% block content_title %}
+        <h2>Articles</h2>
+    {% endblock %}
+
+    {% if articles_page and articles_page.object_list %}
+        {# This handles the main index pagination #}
+        {% for article in articles_page.object_list %}
+        <article>
+            <header>
+                <h3><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h3>
+                <p><small>
+                    Published: {{ article.locale_date }}
+                    {% if article.category %}
+                    | Category: <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+                    {% endif %}
+                </small></p>
+            </header>
+            <section>
+                {{ article.summary }}
+                <a class="readmore" href="{{ SITEURL }}/{{ article.url }}">Read more...</a>
+            </section>
+        </article>
+        {% endfor %}
+    {% elif articles %}
+        {# This handles contexts like archives where 'articles' is a simple list #}
+        {% for article in articles %}
+        <article>
+            <header>
+                <h3><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h3>
+                <p><small>
+                    Published: {{ article.locale_date }}
+                    {% if article.category %}
+                    | Category: <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+                    {% endif %}
+                </small></p>
+            </header>
+            <section>
+                {{ article.summary }}
+                <a class="readmore" href="{{ SITEURL }}/{{ article.url }}">Read more...</a>
+            </section>
+        </article>
+        {% endfor %}
+    {% else %}
+        <p>No articles found.</p>
+    {% endif %}
+
+    {# Pagination should only be shown if articles_page exists #}
+    {% if articles_page and articles_page.object_list and articles_page.has_other_pages() %}
+        {% include "pagination.html" %}
+    {% endif %}
+{% endblock %}
