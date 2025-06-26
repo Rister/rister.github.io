@@ -37,6 +37,9 @@ DEFAULT_PAGINATION = 10
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
+PLUGIN_PATHS = ['pelican/plugins']
+PLUGINS = ['humans'] # When using PLUGIN_PATHS, short names are often used
+
 THEME = 'themes/risterio-simple' # Direct relative path to the theme
 # Removed THEME_PATHS
 # Removed THEME_TEMPLATES_OVERRIDES
@@ -51,3 +54,27 @@ DISPLAY_PAGES_ON_MENU = True # If you have static pages like 'About'
 
 DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives'] # Add other templates as needed
 PAGINATED_TEMPLATES = {'index': None} # Updated to dict format; None uses DEFAULT_PAGINATION
+
+# Humans.txt Plugin Settings
+# Example configuration:
+# HUMANS_TEAM = [
+#     {'Team member': 'Name', 'Role': 'Developer', 'Contact': 'email@example.com'},
+#     'Another Team Member - Designer',
+# ]
+# HUMANS_THANKS = [
+#     'Contributor Name - Contribution',
+#     ('Another Contributor', 'Their Contribution'),
+# ]
+# HUMANS_SITE = {
+#     'Standards': 'HTML5, CSS3, WCAG AAA',
+#     'Components': 'Pelican, Jinja2, MyCustomTheme',
+#     'Software': 'Python, VSCode',
+# }
+#
+# By default, if these are not set, the plugin will use generic information.
+# You can override specific sections or leave them for defaults.
+# For example, to only specify the team:
+# HUMANS_TEAM = [
+#     {'Author': 'Jeremy Rist', 'Role': 'Owner', 'Contact': 'jeremy@rist.dev', 'Mastodon': '@jrist@awscommunity.social'}
+# ]
+# The /* SITE */ section will always include "Last update".
