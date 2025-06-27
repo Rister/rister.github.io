@@ -74,7 +74,7 @@ PAGINATED_TEMPLATES = {'index': None} # Updated to dict format; None uses DEFAUL
 # By default, if these are not set, the plugin will use generic information.
 # You can override specific sections or leave them for defaults.
 # For example, to only specify the team:
-# HUMANS_TEAM = [
-#     {'Author': 'Jeremy Rist', 'Role': 'Owner', 'Contact': 'jeremy@rist.dev', 'Mastodon': '@jrist@awscommunity.social'}
-# ]
+HUMANS_TEAM = [
+    {'Author': 'Jeremy Rist', 'Role': 'Owner/Developer', 'Contact': 'jeremy@rist.dev'}
+]
 # The /* SITE */ section will always include "Last update".
