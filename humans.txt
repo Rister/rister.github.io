@@ -4,7 +4,7 @@
 /* THANKS */
 
 /* SITE */
-Last update: 2025/07/03
 Standards: HTML5, CSS3
-Components: Pelican
+Components: Pelican, Jinja2
 Software: Python
+Last update: 2025/07/03
