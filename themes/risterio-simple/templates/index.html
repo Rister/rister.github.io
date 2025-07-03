@@ -13,12 +13,12 @@
         <article>
             <header>
                 <h3><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h3>
-                <p><small>
+                <div><small>
                     Published: {{ article.locale_date }}
                     {% if article.category %}
                     | Category: <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
                     {% endif %}
-                </small></p>
+                </small></div>
             </header>
             <section>
                 {{ article.summary }}
