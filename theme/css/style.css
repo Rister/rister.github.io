@@ -144,6 +144,16 @@ header {
     border-top: 5px solid var(--accent-color-red); /* Red accent for header top */
 }
 
+/* Default link color in header to yellow for contrast */
+header a {
+    color: var(--accent-color-yellow);
+    text-decoration: none; /* Assuming most header links don't need underline by default */
+}
+header a:hover { /* General hover for header links */
+    background-color: var(--accent-color-yellow);
+    color: var(--text-color);
+}
+
 .site-logo {
     max-height: 60px; /* Slightly larger logo */
     margin-right: 20px;
@@ -157,12 +167,13 @@ header h1 {
 }
 
 header h1 a {
-    color: var(--header-text-color);
+    color: var(--accent-color-yellow); /* Yellow for better contrast on black bg */
     text-decoration: none;
 }
 
 header h1 a:hover {
-    color: var(--accent-color-yellow); /* Yellow accent color on hover */
+    background-color: var(--accent-color-yellow); /* Yellow background on hover */
+    color: var(--text-color); /* Black text on hover */
 }
 
 header .subtitle {
