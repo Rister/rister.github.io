@@ -93,6 +93,11 @@ article h2 a:hover {
     padding-left: 10px;
 }
 
+/* Ensure metadata under article titles has some space */
+article header div small {
+    display: inline-block; /* To allow margin-top */
+    margin-top: 0.5em;
+}
 
 aside {
     flex: 1; /* Takes 1 part of the space */
@@ -136,7 +141,7 @@ aside ul li a:hover {
 header {
     background-color: var(--header-bg-color);
     color: var(--header-text-color);
-    padding: 2em 1.5em; /* Generous padding */
+    padding: 1em 1.5em; /* Reduced top/bottom padding */
     display: flex;
     align-items: center;
     flex-wrap: wrap;
