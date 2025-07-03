@@ -56,15 +56,15 @@ header, nav, footer, main, aside {
 main {
     flex: 3; /* Takes 3 parts of the space */
     background-color: var(--background-color);
-    box-shadow: 10px 10px 0px var(--border-color); /* Hard shadow */
+    box-shadow: 8px 8px 0px var(--border-color); /* Standardized Hard shadow */
 }
 
 article {
     background-color: var(--background-color);
     padding: 1.5em;
-    border: 2px solid var(--border-color);
+    border: 3px solid var(--border-color); /* Standardized border */
     margin-bottom: 2em;
-    box-shadow: 8px 8px 0px #333333; /* Slightly softer hard shadow for articles */
+    box-shadow: 8px 8px 0px var(--border-color); /* Standardized shadow */
 }
 
 article h2 {
@@ -310,11 +310,11 @@ a:hover {
         width: auto; /* Let flexbox handle width */
         margin-left: 0;
         margin-right: 0;
-        box-shadow: 5px 5px 0px var(--border-color); /* Smaller shadow */
+        box-shadow: 5px 5px 0px var(--border-color); /* Standardized smaller shadow */
     }
 
     article {
-        box-shadow: 5px 5px 0px #333333;
+        box-shadow: 5px 5px 0px var(--border-color); /* Standardized smaller shadow */
     }
 }
 
