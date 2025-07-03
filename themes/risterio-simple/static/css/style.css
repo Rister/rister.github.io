@@ -44,7 +44,7 @@ header, nav, footer, main, aside {
     margin-bottom: 20px;
     padding: 1.5em; /* Uniform padding */
     border: 3px solid var(--border-color); /* Thick, stark borders */
-    border-radius: 0; /* No rounded corners */
+    border-radius: 6px; /* ADDED subtle rounding globally */
 }
 
 .content-wrapper {
@@ -65,6 +65,7 @@ article {
     border: 3px solid var(--border-color); /* Standardized border */
     margin-bottom: 2em;
     box-shadow: 8px 8px 0px var(--border-color); /* Standardized shadow */
+    border-radius: 6px; /* Added subtle rounding */
 }
 
 article h2 {
@@ -102,9 +103,8 @@ article header div small {
 aside {
     flex: 1; /* Takes 1 part of the space */
     background-color: var(--background-color); /* Consistent background */
-    border: 3px solid var(--border-color);
     padding: 1.5em;
-    border-left: 5px solid var(--accent-color-magenta); /* Magenta accent for aside */
+    /* General 'border: 3px solid var(--border-color)' and 'border-radius: 6px' from group selector apply */
 }
 
 aside h2 {
@@ -113,7 +113,7 @@ aside h2 {
     border-bottom: 2px solid var(--border-color);
     padding-bottom: 0.3em;
     text-transform: uppercase;
-    color: var(--accent-color-magenta); /* Magenta for aside headings */
+    color: var(--text-color); /* Changed from magenta to default text color */
 }
 
 aside ul {
@@ -139,30 +139,34 @@ aside ul li a:hover {
 
 
 header {
-    background-color: var(--header-bg-color);
-    color: var(--header-text-color);
+
     padding: 1em 1.5em; /* Reduced top/bottom padding */
+    background-color: var(--background-color); /* Changed to white background */
+    color: var(--text-color); /* Changed to black text */
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    border-bottom-width: 5px; /* Thicker bottom border for header */
-    border-top: 5px solid var(--accent-color-red); /* Red accent for header top */
+    border: 5px solid var(--border-color); /* Uniform thicker black border */
+    box-shadow: 8px 8px 0px var(--border-color); /* Added drop shadow */
+    border-radius: 6px; /* Added subtle rounding */
+    /* Removed specific border-bottom-width and border-top accent */
 }
 
-/* Default link color in header to yellow for contrast */
+/* Link colors in header suitable for white background */
 header a {
-    color: var(--accent-color-yellow);
-    text-decoration: none; /* Assuming most header links don't need underline by default */
+    color: var(--link-color); /* Standard blue links */
+    text-decoration: underline; /* Standard underline */
 }
-header a:hover { /* General hover for header links */
-    background-color: var(--accent-color-yellow);
-    color: var(--text-color);
+header a:hover {
+    color: var(--link-hover-text-color); /* Black text */
+    background-color: var(--link-hover-bg-color); /* Yellow background */
+    text-decoration: none;
 }
 
 .site-logo {
     max-height: 60px; /* Slightly larger logo */
     margin-right: 20px;
-    border: 2px solid var(--accent-color-yellow); /* Yellow accent border for logo */
+    border: 2px solid var(--accent-color-yellow); /* Yellow accent border for logo - RETAINED as an accent */
 }
 
 header h1 {
@@ -172,17 +176,19 @@ header h1 {
 }
 
 header h1 a {
-    color: var(--accent-color-yellow); /* Yellow for better contrast on black bg */
-    text-decoration: none;
+    /* Styles inherited from 'header a' are now appropriate */
+    /* color: var(--link-color); */ /* Explicitly ensure it if needed, but should inherit */
+    /* text-decoration: underline; */
 }
 
 header h1 a:hover {
-    background-color: var(--accent-color-yellow); /* Yellow background on hover */
-    color: var(--text-color); /* Black text on hover */
+    /* Styles inherited from 'header a:hover' are now appropriate */
+    /* color: var(--link-hover-text-color); */
+    /* background-color: var(--link-hover-bg-color); */
 }
 
 header .subtitle {
-    color: #CCCCCC; /* Lighter subtitle */
+    color: #555555; /* Darker subtitle for white background */
     font-size: 1em;
     margin-top: 0.2em;
     margin-left: 5px;
@@ -196,8 +202,7 @@ header .subtitle {
 nav {
     background-color: var(--background-color); /* Stark background for nav */
     padding: 0; /* Padding handled by ul/li */
-    border-bottom-width: 3px;
-    border-top: 3px solid var(--accent-color-cyan); /* Cyan border top for nav */
+    /* General 'border: 3px solid var(--border-color)' and 'border-radius: 6px' from group selector apply */
 }
 
 nav ul {
@@ -233,20 +238,22 @@ nav ul li a:hover, nav ul li.active a {
 footer {
     text-align: center;
     font-size: 1em; /* Slightly larger footer text */
-    background-color: var(--footer-bg-color);
-    color: var(--footer-text-color);
+    background-color: var(--background-color); /* Changed to white background */
+    color: var(--text-color); /* Changed to black text */
     padding: 2em 1.5em;
-    border-top-width: 5px; /* Thicker top border for footer */
-    border-bottom: 5px solid var(--accent-color-magenta); /* Magenta border bottom for footer */
+    border: 5px solid var(--border-color); /* Uniform thicker black border */
+    box-shadow: 8px 8px 0px var(--border-color); /* Added drop shadow */
+    border-radius: 6px; /* Added subtle rounding */
+    /* Removed specific border-top-width and border-bottom accent */
 }
 
 footer a {
-    color: var(--accent-color-yellow); /* Yellow accent color for links in footer */
-    text-decoration: underline;
+    color: var(--link-color); /* Standard blue links */
+    text-decoration: underline; /* Standard underline */
 }
 footer a:hover {
-    background-color: var(--accent-color-yellow);
-    color: var(--text-color);
+    color: var(--link-hover-text-color); /* Black text */
+    background-color: var(--link-hover-bg-color); /* Yellow background */
     text-decoration: none;
 }
 
