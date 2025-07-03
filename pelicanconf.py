@@ -79,7 +79,7 @@ HUMANS_TEAM = [
 ]
 HUMANS_SITE = {
     'Standards': 'HTML5, CSS3',
-    'Components': 'Pelican, Jinja2',
+    'Components': 'Pelican, Jinja2, IBM Plex Mono (from Google Fonts)',
     'Software': 'Python'
 }
 # The /* SITE */ section will always include "Last update".

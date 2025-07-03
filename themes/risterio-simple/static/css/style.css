@@ -355,3 +355,44 @@ a:hover {
         padding: 1em;
     }
 }
+
+/* Styles for code blocks - Added for dot-matrix effect */
+pre {
+    background-color: #e0ffff; /* Base for striped background - pale cyan */
+    background-image: repeating-linear-gradient(
+        to bottom,
+        #e0ffff, /* Pale Cyan */
+        #e0ffff 1.5em, /* Stripe height */
+        #fff8dc 1.5em, /* Pale Yellow (Cornsilk) */
+        #fff8dc 3em   /* Stripe height */
+    );
+    border: 1px solid #bbb;    /* Slightly darker border for better definition with stripes */
+    padding: 1em;
+    overflow-x: auto;          /* Allow horizontal scrolling for long lines */
+    font-family: 'IBM Plex Mono', "Courier New", Courier, monospace; /* IBM Plex Mono, then fallbacks */
+    font-size: 0.8em;          /* Reduced font size to 80% */
+    color: #222;               /* Dark gray text */
+    line-height: 1.5;          /* Adjusted line height to fit stripes (1.5em per color band) */
+    white-space: pre-wrap;     /* Wrap long lines but preserve formatting */
+    /* Ensure consistency with neo-brutalist borders if desired, e.g., border: 3px solid var(--border-color); */
+    /* box-shadow: 5px 5px 0px var(--border-color); /* Optional: match shadow style */
+    border-radius: 0; /* Sharp corners as requested */
+}
+
+/* Styling for inline code, including <tt> used by RST - Added for dot-matrix effect */
+code, tt {
+    font-family: 'IBM Plex Mono', "Courier New", Courier, monospace; /* IBM Plex Mono, then fallbacks */
+    font-size: 0.8em;          /* Reduced font size to 80% */
+    background-color: #e8e8e8; /* Slightly different background for inline code */
+    padding: 0.2em 0.4em;
+    border-radius: 3px; /* Standard small radius for inline elements */
+    color: #222; /* Ensure text color matches block code for consistency */
+    border: 1px solid #ccc; /* Subtle border for inline code */
+}
+
+pre code {
+    background-color: transparent; /* Avoid double background for code inside pre */
+    padding: 0;
+    border-radius: 0;
+    border: none; /* Remove border for code spans within pre, as pre has its own */
+}
