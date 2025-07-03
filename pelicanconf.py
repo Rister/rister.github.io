@@ -77,4 +77,9 @@ PAGINATED_TEMPLATES = {'index': None} # Updated to dict format; None uses DEFAUL
 HUMANS_TEAM = [
     {'Author': 'Jeremy Rist', 'Role': 'Owner/Developer', 'Contact': 'jeremy@rist.dev'}
 ]
+HUMANS_SITE = {
+    'Standards': 'HTML5, CSS3',
+    'Components': 'Pelican, Jinja2',
+    'Software': 'Python'
+}
 # The /* SITE */ section will always include "Last update".
