@@ -111,6 +111,7 @@ aside {
     flex: 1;
     background-color: var(--background-color);
     /* padding, border, and border-radius are inherited from the 'header, nav, footer, main, aside' rule. */
+    box-shadow: 8px 8px 0px var(--border-color); /* Hard shadow for a 'block' effect. */
 }
 
 /* ==========================================================================
@@ -182,6 +183,7 @@ nav {
     padding: 0; /* Padding handled by ul/li */
     background-color: var(--background-color);
     /* border and border-radius inherited from semantic section styling */
+    box-shadow: 8px 8px 0px var(--border-color); /* Hard shadow for a 'block' effect. */
 }
 
 /* Navigation list:
@@ -546,9 +548,10 @@ pre code {
         flex-direction: column;
     }
 
-    /* Main content and sidebar take full width and have reduced shadow on smaller screens. */
+    /* Main content, sidebar, and nav take full width and have reduced shadow on smaller screens. */
     main,
-    aside {
+    aside,
+    nav {
         flex: 1; /* Reset flex sizing. */
         width: auto;
         margin-left: 0;
