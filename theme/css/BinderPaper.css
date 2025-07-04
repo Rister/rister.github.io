@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Special Elite', 'Courier New', Courier, monospace;
-    background-color: #fdfaf2; /* Off-white paper color */
+    background-color: #8FBC8F; /* DarkSeaGreen for antique desk blotter effect */
     color: #333;
     margin: 0;
     padding: 0;
@@ -62,7 +62,39 @@ a:hover {
 }
 
 /* Header, Nav, Footer - basic placeholders for now */
-header.main-header, footer.main-footer {
+header.main-header {
+    display: inline-block; /* Allow sizing and prevent full width */
+    background-color: #FFFFE0; /* LightYellow for Post-it effect */
+    color: #333; /* Darker text for contrast on yellow */
+    padding: 20px;
+    margin-bottom: 20px; /* Space below the Post-it */
+    text-align: left; /* Align text to the left within the Post-it */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2); /* Subtle shadow */
+    border: 1px solid #F0E68C; /* Khaki border for definition */
+    transform: rotate(-2deg); /* Slight tilt */
+    width: auto; /* Let content determine width, or set fixed if needed */
+    max-width: 90%; /* Ensure it doesn't overflow too much if content is wide */
+}
+
+/* Adjust site title and subtitle within the Post-it */
+header.main-header h1 {
+    font-size: 1.8em; /* Slightly smaller for Post-it context */
+    margin-top: 0;
+    margin-bottom: 0.3em;
+    border-bottom: none; /* Remove the blue line from main h1 style */
+}
+header.main-header h1 a {
+    color: #003366; /* Keep heading link color distinct */
+}
+
+header.main-header .subtitle {
+    font-size: 0.9em;
+    margin-bottom: 1em;
+    color: #444;
+}
+
+/* Footer styling remains separate */
+footer.main-footer {
     padding: 10px 0;
     text-align: center;
     color: #555;
@@ -71,13 +103,32 @@ header.main-header, footer.main-footer {
 nav ul {
     list-style-type: none;
     padding: 0;
-    text-align: center;
+    /* text-align: center; /* Remove global center alignment for nav */
+    margin-top: 10px; /* Add some space above the nav */
+}
+
+/* Ensure nav items are left-aligned within the Post-it header */
+header.main-header nav ul {
+    text-align: left;
 }
 
 nav ul li {
-    display: inline;
+    display: inline-block; /* Use inline-block for better spacing control if needed */
     margin-right: 15px;
+    margin-bottom: 5px; /* Allow wrapping with some space */
 }
+
+/* Change nav link color for better contrast on yellow */
+header.main-header nav ul li a {
+    color: #005A9C; /* A darker, slightly desaturated blue */
+    text-decoration: none;
+}
+
+header.main-header nav ul li a:hover {
+    text-decoration: underline;
+    color: #003366; /* Darken on hover */
+}
+
 
 /* Article specific styles */
 .article-meta {
