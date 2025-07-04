@@ -40,7 +40,7 @@ DEFAULT_PAGINATION = 10
 PLUGIN_PATHS = ['pelican/plugins']
 PLUGINS = ['humans'] # When using PLUGIN_PATHS, short names are often used
 
-THEME = 'themes/risterio-simple' # Direct relative path to the theme
+THEME = 'themes/BinderPaper' # Direct relative path to the theme
 # Removed THEME_PATHS
 # Removed THEME_TEMPLATES_OVERRIDES
 # TEMPLATE_PAGES = {'../templates/base.html': 'base.html'} # This line was incorrect and likely causing TypeErrors
