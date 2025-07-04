@@ -7,4 +7,4 @@
 Standards: HTML5, CSS3
 Components: Pelican, Jinja2, IBM Plex Mono (from Google Fonts)
 Software: Python
-Last update: 2025/07/03
+Last update: 2025/07/04
