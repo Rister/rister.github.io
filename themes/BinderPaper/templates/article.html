@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title|striptags }} - {{ SITENAME }}{% endblock %}
+
+{% block content %}
+<article class="hentry">
+    <header>
+        <h1 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h1>
+        <div class="article-meta">
+            <p>
+                {% if article.date %}
+                <span class="published">Date: {{ article.locale_date }}</span>
+                {% endif %}
+                {% if article.category %}
+                <span class="category">Category: <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></span>
+                {% endif %}
+                {% if article.tags %}
+                <span class="tags">Tags:
+                    {% for tag in article.tags %}
+                    <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </span>
+                {% endif %}
+                 {% if article.authors %}
+                <span class="authors">Authors:
+                    {% for author in article.authors %}
+                    <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </span>
+                {% endif %}
+            </p>
+        </div>
+    </header>
+
+    <div class="entry-content">
+        {{ article.content }}
+    </div>
+
+    {% if article.related_posts %}
+    <div class="related-posts">
+        <h3>Related Posts:</h3>
+        <ul>
+            {% for related_post in article.related_posts %}
+            <li><a href="{{ SITEURL }}/{{ related_post.url }}">{{ related_post.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</article>
+{% endblock content %}

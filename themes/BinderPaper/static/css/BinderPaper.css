@@ -1,0 +1,140 @@
+/* BinderPaper Theme CSS */
+
+body {
+    font-family: 'Special Elite', 'Courier New', Courier, monospace;
+    background-color: #fdfaf2; /* Off-white paper color */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.content-wrapper {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px 30px 20px 60px; /* Extra left padding for margin line */
+    background-image:
+        repeating-linear-gradient(to bottom,
+            transparent,
+            transparent 23px,
+            #dce4f0 23px, /* Light blue line */
+            #dce4f0 24px
+        );
+    background-attachment: local; /* Lines scroll with content */
+    border-left: 2px solid #ffcccc; /* Pink/red margin line */
+    min-height: 90vh; /* Ensure lines cover most of the page */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+/* Basic Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Special Elite', 'Courier New', Courier, monospace; /* Consistent font */
+    color: #003366; /* Dark blue for headings */
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 2.2em;
+    border-bottom: 1px solid #dce4f0; /* Match horizontal lines */
+    padding-bottom: 0.3em;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+a {
+    color: #0066cc; /* Standard link blue */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header, Nav, Footer - basic placeholders for now */
+header.main-header, footer.main-footer {
+    padding: 10px 0;
+    text-align: center;
+    color: #555;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+/* Article specific styles */
+.article-meta {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 1.5em;
+}
+
+.article-meta span {
+    margin-right: 10px;
+}
+
+/* Code blocks - give them a slightly different feel */
+pre {
+    background-color: #f0f0f0; /* Light grey background */
+    border: 1px solid #ddd;
+    padding: 10px;
+    overflow-x: auto; /* Allow horizontal scrolling for long lines */
+    font-family: 'Consolas', 'Monaco', monospace; /* Different font for code */
+    line-height: 1.4; /* Adjust line height for code */
+    border-radius: 3px;
+}
+
+code {
+    font-family: 'Consolas', 'Monaco', monospace;
+    background-color: #f0f0f0; /* Match pre for inline code */
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+blockquote {
+    border-left: 3px solid #003366; /* Dark blue left border */
+    padding-left: 15px;
+    margin-left: 0;
+    font-style: italic;
+    color: #444;
+}
+
+/* Ensure the line height for text elements aligns reasonably with the paper lines */
+body, p, li, td, th, .article-meta {
+    line-height: 24px; /* Match the repeating gradient line height */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    /* Adjust heading line heights if they look off with the paper lines */
+    /* For now, let them default or inherit, can be tweaked later */
+}
+
+/* Responsive considerations (very basic) */
+@media (max-width: 600px) {
+    .content-wrapper {
+        margin: 10px;
+        padding: 15px 20px 15px 40px; /* Adjust padding for smaller screens */
+    }
+
+    body, p, li, td, th, .article-meta {
+        font-size: 15px; /* Slightly smaller font on small screens */
+        line-height: 24px; /* Maintain line height for paper lines */
+    }
+}
