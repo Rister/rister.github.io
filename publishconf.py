@@ -11,7 +11,7 @@ SITEURL = 'https://rister.github.io' # Update this to your actual domain
 RELATIVE_URLS = False
 
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
-CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml' # Use %s for compatibility with |format filter
+CATEGORY_FEED_ATOM = None # Workaround for Pelican TypeError at __init__.py:683
 
 DELETE_OUTPUT_DIRECTORY = True
 
