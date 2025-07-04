@@ -160,5 +160,43 @@ class TestHumansPlugin(unittest.TestCase):
         self.assertIn("/* SITE */", content) # Default site section header
         self.assertIn("Standards: HTML5, CSS3", content) # Default site content
 
+    def test_custom_team_list_of_dicts_and_strings_generation(self):
+        custom_settings = {
+            'HUMANS_TEAM': [
+                {'Role': 'Lead Developer', 'Name': 'Alice Wonderland'},
+                {'Role': 'Content Creator', 'Name': 'Bob The Builder'},
+                'A general contributor: Charlie Brown'
+            ]
+        }
+        pelican_obj = self._get_pelican_object(custom_settings)
+        generate_humans_txt(pelican_obj)
+
+        humans_file_path = os.path.join(self.temp_output_dir, "humans.txt")
+        with open(humans_file_path, 'r', encoding='utf-8') as f:
+            content = f.read().strip()
+
+        expected_team_content = """\
+/* TEAM */
+Role: Lead Developer
+Name: Alice Wonderland
+Role: Content Creator
+Name: Bob The Builder
+A general contributor: Charlie Brown""".strip()
+
+        # Check if the whole block is present. Order within dicts doesn't matter for this check,
+        # but the fixed plugin now outputs dicts line by line.
+        # This simple assertIn might be too broad if dict key order changes,
+        # but for now, it verifies the lines are produced.
+        # A more robust check might parse line by line or sort.
+        self.assertIn("Role: Lead Developer", content)
+        self.assertIn("Name: Alice Wonderland", content)
+        self.assertIn("Role: Content Creator", content)
+        self.assertIn("Name: Bob The Builder", content)
+        self.assertIn("A general contributor: Charlie Brown", content)
+
+        # Ensure the section header is there
+        self.assertTrue(content.startswith("/* TEAM */") or "/* TEAM */" in content.splitlines()[0] if content else False)
+
+
 if __name__ == '__main__':
     unittest.main()

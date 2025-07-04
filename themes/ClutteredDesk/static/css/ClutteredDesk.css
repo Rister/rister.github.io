@@ -1,0 +1,393 @@
+/* BinderPaper Theme CSS */
+
+body {
+    font-family: 'Special Elite', 'Courier New', Courier, monospace;
+    background-color: #8FBC8F; /* DarkSeaGreen for antique desk blotter effect */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.content-wrapper {
+    max-width: 1000px; /* Making the desk area a bit wider */
+    margin: 20px auto;
+    padding: 20px; /* Adjusted padding, no need for extra left for margin line now */
+    background-color: #A0522D; /* Sienna - a wood-like fallback */
+    background-image:
+        linear-gradient(45deg, rgba(0,0,0,0.05) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.05) 75%, rgba(0,0,0,0.05)),
+        linear-gradient(45deg, rgba(0,0,0,0.05) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.05) 75%, rgba(0,0,0,0.05)),
+        linear-gradient(to right, #A0522D, #B5651D 20%, #A0522D 40%, #8B4513 60%, #A0522D 80%, #B5651D); /* Simplified wood grain attempt */
+    background-size: 30px 30px, 30px 30px, 100% 100%; /* Sizes for the grain patterns and base */
+    background-position: 0 0, 15px 15px, 0 0; /* Offset one of the hatches for randomness */
+    min-height: 90vh;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2); /* Slightly enhanced shadow for the desk */
+    border-radius: 5px; /* Optional: slightly rounded corners for the desk */
+}
+
+/* Basic Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Special Elite', 'Courier New', Courier, monospace; /* Consistent font */
+    color: #003366; /* Dark blue for headings */
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 2.2em;
+    border-bottom: 1px solid #dce4f0; /* Match horizontal lines */
+    padding-bottom: 0.3em;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+a {
+    color: #0066cc; /* Standard link blue */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header, Nav, Footer - basic placeholders for now */
+header.main-header {
+    display: block; /* Changed from inline-block */
+    background-color: #fff8b0; /* More vibrant yellow for Post-it effect */
+    color: #333; /* Darker text for contrast on yellow */
+    padding: 15px; /* Adjusted padding */
+    margin-right: 20px; /* Space to the right of the Post-it */
+    /* margin-bottom is removed, handled by parent */
+    text-align: left; /* Align text to the left within the Post-it */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2); /* Subtle shadow */
+    border: 1px solid #F0E68C; /* Khaki border for definition */
+    transform: rotate(-0.5deg); /* Reduced tilt */
+    width: 200px; /* Fixed width */
+    height: 200px; /* Fixed height */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    overflow: hidden; /* Hide overflow if content is too large */
+}
+
+/* Adjust site title and subtitle within the Post-it */
+header.main-header h1 {
+    font-size: 1.4em; /* Further reduced for smaller Post-it size */
+    margin-top: 0;
+    margin-bottom: 0.2em; /* Adjusted margin */
+    border-bottom: none; /* Remove the blue line from main h1 style */
+    word-wrap: break-word; /* Allow long words to break */
+}
+header.main-header h1 a {
+    color: #003366; /* Keep heading link color distinct */
+}
+
+header.main-header .subtitle {
+    font-size: 0.8em; /* Further reduced */
+    margin-bottom: 0.5em; /* Adjusted margin */
+    color: #444;
+    word-wrap: break-word; /* Allow long words to break */
+}
+
+/* Footer styling remains separate */
+footer.main-footer {
+    padding: 10px 0;
+    text-align: center;
+    color: #555;
+    margin-top: 20px; /* Add some space above the footer */
+    padding-top: 20px;
+    border-top: 1px dashed #ccc; /* Separator line for the footer */
+}
+
+/* Restyling header.main-header */
+header.main-header {
+    background-color: #e9ecef; /* Light grey, neutral block */
+    color: #343a40; /* Darker text */
+    padding: 20px;
+    margin-right: 20px;
+    text-align: left;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid #ced4da;
+    transform: none; /* Remove rotation */
+    width: auto; /* Allow width to be determined by content or flex parent */
+    min-width: 250px; /* Ensure it has some presence */
+    height: auto; /* Adjust height to content */
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+header.main-header h1 {
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 0.3em;
+    border-bottom: none;
+}
+header.main-header h1 a {
+    color: #003366;
+    text-decoration: none;
+}
+header.main-header h1 a:hover {
+    text-decoration: underline;
+}
+
+header.main-header .subtitle {
+    font-size: 0.9em;
+    margin-bottom: 0;
+    color: #495057;
+}
+
+
+/* Nav styling */
+nav { /* Targeting the nav element directly within .top-area-wrapper */
+    flex-grow: 1;
+    padding-left: 10px; /* Some space from the header */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; /* Remove default margins */
+    display: flex; /* Align items in a row */
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 5px; /* Space between nav items */
+}
+
+nav ul li {
+    margin-right: 0; /* Remove old margin */
+    margin-bottom: 0; /* Remove old margin */
+}
+
+nav ul li a {
+    display: block;
+    padding: 8px 12px;
+    background-color: #f8f9fa; /* Light background for tabs/labels */
+    color: #495057;
+    text-decoration: none;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+nav ul li a:hover {
+    background-color: #e9ecef;
+    border-color: #ced4da;
+    text-decoration: none;
+}
+
+nav ul li.active a { /* If we add an active class later */
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+
+/* Article specific styles */
+.article-meta {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 1.5em;
+}
+
+.article-meta span {
+    margin-right: 10px;
+}
+
+/* Code blocks - give them a slightly different feel */
+pre {
+    background-color: #f0f0f0; /* Light grey background */
+    border: 1px solid #ddd;
+    padding: 10px;
+    overflow-x: auto; /* Allow horizontal scrolling for long lines */
+    font-family: 'Consolas', 'Monaco', monospace; /* Different font for code */
+    line-height: 1.4; /* Adjust line height for code */
+    border-radius: 3px;
+}
+
+code {
+    font-family: 'Consolas', 'Monaco', monospace;
+    background-color: #f0f0f0; /* Match pre for inline code */
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+blockquote {
+    border-left: 3px solid #003366; /* Dark blue left border */
+    padding-left: 15px;
+    margin-left: 0;
+    font-style: italic;
+    color: #444;
+}
+
+/* Ensure the line height for text elements aligns reasonably with the paper lines */
+body, p, li, td, th, .article-meta {
+    /* line-height: 24px; /* Match the repeating gradient line height - REMOVED */
+    line-height: 1.6; /* Restore a sensible default line-height */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    /* Adjust heading line heights if they look off with the paper lines */
+    /* For now, let them default or inherit, can be tweaked later */
+}
+
+/* Article Styling - as paper on the desk */
+article {
+    background-color: #fffef0; /* Creamy paper color */
+    padding: 25px;
+    margin-bottom: 30px; /* Space between papers */
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.15); /* Softer, slightly larger shadow */
+    border: 1px solid #eee; /* Faint edge for the paper */
+    border-radius: 2px; /* Very slight rounding of paper corners */
+    /* Optional: slight rotation for a more casual look.
+       This can be randomized with JS later if desired, or applied to :nth-child for variation.
+       transform: rotate(-0.5deg);
+    */
+}
+
+article:nth-child(even) {
+    /* transform: rotate(0.3deg); /* Vary rotation for visual interest */
+}
+
+/* Sidebar Widget Styling - as Post-it notes or small cards */
+aside.sidebar .widget {
+    background-color: #ffffa0; /* Light yellow for Post-it notes */
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+    border: 1px solid #e0e090; /* Slightly darker yellow for border */
+    border-radius: 3px;
+}
+
+aside.sidebar .widget h2 {
+    font-size: 1.1em; /* Smaller headings for widgets */
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #ccc;
+}
+
+aside.sidebar .widget ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+aside.sidebar .widget ul li {
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+aside.sidebar .widget ul li a {
+    text-decoration: none;
+    color: #337ab7; /* Bootstrap-like link color */
+}
+aside.sidebar .widget ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Give widgets slightly different rotations */
+aside.sidebar .widget:nth-of-type(1) {
+    transform: rotate(-1deg);
+}
+aside.sidebar .widget:nth-of-type(2) {
+    transform: rotate(0.5deg);
+}
+aside.sidebar .widget:nth-of-type(3) {
+    transform: rotate(-0.8deg);
+}
+
+/* Layout for Main Content and Sidebar */
+.main-content-area {
+    display: flex;
+    gap: 20px; /* Space between main and sidebar */
+}
+
+main {
+    flex: 3; /* Main content takes more space */
+    /* Articles inside main are already styled */
+}
+
+aside.sidebar {
+    flex: 1; /* Sidebar takes less space */
+    /* Widgets inside aside are already styled */
+}
+
+
+/* Responsive considerations */
+@media (max-width: 768px) { /* Adjusted breakpoint */
+    .top-area-wrapper,
+    .main-content-area {
+        flex-direction: column;
+        align-items: stretch; /* Stretch items to fill width */
+    }
+
+    header.main-header {
+        margin-right: 0;
+        margin-bottom: 15px;
+        min-width: 0; /* Allow it to shrink fully */
+    }
+
+    nav {
+        padding-left: 0; /* Remove padding when stacked */
+    }
+
+    nav ul {
+        justify-content: center; /* Center nav items */
+    }
+
+    aside.sidebar {
+        margin-top: 20px; /* Add space when stacked below main */
+    }
+
+    /* Previous responsive rules for smaller text might still be useful */
+    body, p, li, td, th, .article-meta {
+        font-size: 15px;
+    }
+    .content-wrapper {
+        margin: 10px;
+        padding: 15px;
+    }
+}
+
+
+/* New styles for top-area layout */
+/* .top-area-wrapper is already defined above the responsive block,
+   its flex properties are set there.
+   display: flex;
+   align-items: flex-start;
+   margin-bottom: 20px;
+*/
+
+/* Redundant media query, merging its content into the one above */
+/* @media (max-width: 700px) {
+    .top-area-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header.main-header {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 20px; /* Add bottom margin */
+        /* Optionally, make post-it wider on small screens if not square */
+        /* width: 90%; max-width: 300px; height: auto; aspect-ratio: 1/1; */
+        /* For now, keeping it square 200x200 */
+    }
+
+    .top-area-wrapper nav {
+        /* Reset any specific padding added for side-by-side alignment */
+        padding-top: 0;
+        width: 100%; /* Allow nav to take full width */
+    }
+
+    .top-area-wrapper nav ul {
+        text-align: center; /* Center nav items when stacked */
+    }
+}
