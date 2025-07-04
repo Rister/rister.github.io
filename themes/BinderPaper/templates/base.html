@@ -37,11 +37,14 @@
 </head>
 <body>
     <div class="content-wrapper">
-        <header class="main-header">
-            <h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>
-            {% if SITESUBTITLE %}
-            <p class="subtitle">{{ SITESUBTITLE }}</p>
-            {% endif %}
+        <div class="top-area-wrapper"> <!-- New wrapper -->
+            <header class="main-header">
+                <h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>
+                {% if SITESUBTITLE %}
+                <p class="subtitle">{{ SITESUBTITLE }}</p>
+                {% endif %}
+                <!-- Nav will be moved out from here -->
+            </header>
             <nav>
                 <ul>
                     {% for title, link in MENUITEMS %}
@@ -59,7 +62,7 @@
                     {% endif %}
                 </ul>
             </nav>
-        </header>
+        </div> <!-- End of top-area-wrapper -->
 
         <main>
             {% block content %}

@@ -64,34 +64,39 @@ a:hover {
 
 /* Header, Nav, Footer - basic placeholders for now */
 header.main-header {
-    display: inline-block; /* Allow sizing and prevent full width */
+    display: block; /* Changed from inline-block */
     background-color: #fff8b0; /* More vibrant yellow for Post-it effect */
     color: #333; /* Darker text for contrast on yellow */
-    padding: 20px;
-    margin-bottom: 20px; /* Space below the Post-it */
+    padding: 15px; /* Adjusted padding */
+    margin-right: 20px; /* Space to the right of the Post-it */
+    /* margin-bottom is removed, handled by parent */
     text-align: left; /* Align text to the left within the Post-it */
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2); /* Subtle shadow */
     border: 1px solid #F0E68C; /* Khaki border for definition */
-    transform: rotate(-2deg); /* Slight tilt */
-    width: auto; /* Let content determine width, or set fixed if needed */
-    max-width: 90%; /* Ensure it doesn't overflow too much if content is wide */
+    transform: rotate(-0.5deg); /* Reduced tilt */
+    width: 200px; /* Fixed width */
+    height: 200px; /* Fixed height */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    overflow: hidden; /* Hide overflow if content is too large */
 }
 
 /* Adjust site title and subtitle within the Post-it */
 header.main-header h1 {
-    font-size: 1.8em; /* Slightly smaller for Post-it context */
+    font-size: 1.4em; /* Further reduced for smaller Post-it size */
     margin-top: 0;
-    margin-bottom: 0.3em;
+    margin-bottom: 0.2em; /* Adjusted margin */
     border-bottom: none; /* Remove the blue line from main h1 style */
+    word-wrap: break-word; /* Allow long words to break */
 }
 header.main-header h1 a {
     color: #003366; /* Keep heading link color distinct */
 }
 
 header.main-header .subtitle {
-    font-size: 0.9em;
-    margin-bottom: 1em;
+    font-size: 0.8em; /* Further reduced */
+    margin-bottom: 0.5em; /* Adjusted margin */
     color: #444;
+    word-wrap: break-word; /* Allow long words to break */
 }
 
 /* Footer styling remains separate */
@@ -106,11 +111,16 @@ nav ul {
     padding: 0;
     /* text-align: center; /* Remove global center alignment for nav */
     margin-top: 10px; /* Add some space above the nav */
+    /* The parent .top-area-wrapper is display:flex, align-items: flex-start.
+       The nav element itself will be a flex item.
+       We want the nav to take the remaining space and allow its items to wrap. */
+    flex-grow: 1; /* Allow nav to take available space */
 }
 
-/* Ensure nav items are left-aligned within the Post-it header */
-header.main-header nav ul {
-    text-align: left;
+/* General nav list styling, no longer scoped to header.main-header */
+.top-area-wrapper nav ul {
+    text-align: left; /* Keep this for the list items within the nav block */
+    padding-left: 0; /* Remove default ul padding */
 }
 
 nav ul li {
@@ -119,15 +129,16 @@ nav ul li {
     margin-bottom: 5px; /* Allow wrapping with some space */
 }
 
-/* Change nav link color for better contrast on yellow */
-header.main-header nav ul li a {
-    color: #005A9C; /* A darker, slightly desaturated blue */
+/* General nav link styling, no longer scoped to header.main-header for color */
+.top-area-wrapper nav ul li a {
+    /* color will inherit from the general 'a' style: #0066cc */
     text-decoration: none;
 }
 
-header.main-header nav ul li a:hover {
+.top-area-wrapper nav ul li a:hover {
     text-decoration: underline;
-    color: #003366; /* Darken on hover */
+    /* color on hover will inherit from general 'a:hover' style or be a darker version of #0066cc if needed */
+    /* For now, let's rely on the default a:hover, which is just underline. If a color change is desired, add here. */
 }
 
 
@@ -188,5 +199,37 @@ h1, h2, h3, h4, h5, h6 {
     body, p, li, td, th, .article-meta {
         font-size: 15px; /* Slightly smaller font on small screens */
         line-height: 24px; /* Maintain line height for paper lines */
+    }
+}
+
+/* New styles for top-area layout */
+.top-area-wrapper {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    margin-bottom: 20px; /* Space below the whole top area */
+}
+
+@media (max-width: 700px) {
+    .top-area-wrapper {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+    }
+
+    header.main-header {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 20px; /* Add bottom margin */
+        /* Optionally, make post-it wider on small screens if not square */
+        /* width: 90%; max-width: 300px; height: auto; aspect-ratio: 1/1; */
+        /* For now, keeping it square 200x200 */
+    }
+
+    .top-area-wrapper nav {
+        /* Reset any specific padding added for side-by-side alignment */
+        padding-top: 0;
+        width: 100%; /* Allow nav to take full width */
+    }
+
+    .top-area-wrapper nav ul {
+        text-align: center; /* Center nav items when stacked */
     }
 }
