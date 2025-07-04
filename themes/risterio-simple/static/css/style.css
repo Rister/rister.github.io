@@ -1,81 +1,262 @@
 /*
   risterio-simple theme stylesheet - NEO-BRUTALIST STYLE
+  This theme aims for a stark, minimalist, and somewhat raw aesthetic,
+  characterized by strong borders, limited color palettes (with bright accents),
+  and functional, blocky layouts.
 */
 
+/* ==========================================================================
+   Base & Variables
+   ========================================================================== */
+
+/* Basic body setup:
+   - Uses a bold, impactful sans-serif font hierarchy for a strong visual statement.
+   - Standard margin/padding reset.
+   - Stark white background and black text for high contrast, a core tenet of brutalism.
+   - Slightly increased line-height for readability.
+*/
 body {
-    font-family: 'Arial Black', 'Arial Bold', sans-serif; /* Bold, impactful font */
+    font-family: 'Arial Black', 'Arial Bold', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #FFFFFF; /* Stark white background */
-    color: #000000; /* Black text */
+    background-color: #FFFFFF;
+    color: #000000;
     line-height: 1.6;
 }
 
+/* CSS Variables for theming:
+   - Centralizes color definitions for easier maintenance and consistency.
+   - Defines primary colors (background, text, border) and accent colors.
+   - Link hover states are also defined here for global consistency.
+*/
 :root {
-    --accent-color-yellow: #FFFF00; /* Bright yellow accent */
+    --accent-color-yellow: #FFFF00;
     --accent-color-cyan: #00FFFF;
     --accent-color-magenta: #FF00FF;
     --accent-color-green: #00FF00;
     --accent-color-red: #FF0000;
     --background-color: #FFFFFF;
     --text-color: #000000;
+    --border-color: #000000;
+    --link-color: #0000FF; /* Standard blue for clear link identification */
+    --link-hover-bg-color: var(--accent-color-yellow); /* Yellow background on hover for a highlight effect */
+    --link-hover-text-color: #000000; /* Black text on hover for readability against yellow */
+
+    /* Kept for potential future use, though current design uses white background for header/footer */
     --header-bg-color: #000000;
     --header-text-color: #FFFFFF;
     --footer-bg-color: #000000;
     --footer-text-color: #FFFFFF;
-    --border-color: #000000;
-    --link-color: #0000FF; /* Standard blue for links, can be adjusted */
-    --link-hover-bg-color: var(--accent-color-yellow); /* Default hover to yellow */
-    --link-hover-text-color: #000000;
 }
 
-/* Site wrapper for centering */
+/* ==========================================================================
+   Layout: Container, Wrapper, Semantic Sections
+   ========================================================================== */
+
+/* Site wrapper:
+   - Centers the content on the page.
+   - Uses a percentage width with a max-width for responsiveness.
+   - Padding is removed as spacing is handled by internal elements or borders,
+     aligning with the brutalist preference for defined edges.
+*/
 .container {
-    width: 90%; /* Slightly wider for brutalist feel */
-    max-width: 1200px; /* Adjust max-width as needed */
-    margin: 0 auto; /* Centers the container */
+    width: 90%; /* A slightly wider container can feel more 'raw' or less constrained. */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
     background-color: var(--background-color);
-    padding: 0; /* Remove padding, handle spacing with margins/borders */
-    /* box-shadow: 0 0 10px rgba(0,0,0,0.1); Removed soft shadow */
 }
 
-/* Semantic Section Styling */
-header, nav, footer, main, aside {
-    margin-bottom: 20px;
-    padding: 1.5em; /* Uniform padding */
-    border: 3px solid var(--border-color); /* Thick, stark borders */
-    border-radius: 6px; /* ADDED subtle rounding globally */
+/* Semantic Section Styling:
+   - Applies common styling to major layout sections (header, nav, footer, main, aside).
+   - Enforces uniform padding and thick, stark borders, key to the neo-brutalist style.
+   - Subtle border-radius is used globally for a slightly softer edge, a common adaptation in neo-brutalism.
+*/
+header,
+nav,
+footer,
+main,
+aside {
+    margin-bottom: 20px; /* Consistent spacing between major sections. */
+    padding: 1.5em;
+    border: 3px solid var(--border-color);
+    border-radius: 6px; /* A slight rounding can make the starkness more palatable. */
 }
 
+/* Content Wrapper:
+   - Manages the layout of main content and sidebar using flexbox.
+   - `gap` provides spacing between flex items (main and aside).
+*/
 .content-wrapper {
     display: flex;
-    gap: 20px; /* Space between main and aside */
-    margin-bottom: 20px; /* Keep consistent margin */
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
+/* Main content area:
+   - Takes up the majority of the space in the content-wrapper.
+   - Features a hard shadow, a characteristic brutalist element, giving a sense of depth and solidity.
+*/
 main {
-    flex: 3; /* Takes 3 parts of the space */
+    flex: 3;
     background-color: var(--background-color);
-    box-shadow: 8px 8px 0px var(--border-color); /* Standardized Hard shadow */
+    box-shadow: 8px 8px 0px var(--border-color); /* Hard shadow for a 'block' effect. */
 }
 
-article {
+/* Sidebar styling:
+   - Takes up the remaining space in the content-wrapper.
+   - Inherits border and padding from the semantic section styling.
+*/
+aside {
+    flex: 1;
     background-color: var(--background-color);
+    /* padding, border, and border-radius are inherited from the 'header, nav, footer, main, aside' rule. */
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+/* Header section:
+   - Uses flexbox for layout, allowing alignment of logo, title, and subtitle.
+   - Features a thicker border and hard shadow, making it a prominent page element.
+   - Background is white, text is black, consistent with the overall theme.
+   - Padding is adjusted for visual balance.
+*/
+header {
+    display: flex;
+    align-items: center; /* Vertically aligns items like logo and title. */
+    flex-wrap: wrap; /* Allows subtitle to wrap if necessary. */
+    padding: 1em 1.5em;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 5px solid var(--border-color);
+    box-shadow: 8px 8px 0px var(--border-color);
+    /* border-radius is inherited from semantic section styling */
+}
+
+/* Site logo:
+   - Constrained height and margin for spacing.
+   - Retains a yellow accent border as a specific design choice for brand emphasis.
+*/
+.site-logo {
+    max-height: 60px;
+    margin-right: 20px;
+    border: 2px solid var(--accent-color-yellow);
+}
+
+/* Main site title (H1 in header):
+   - Large and bold for maximum impact.
+*/
+header h1 {
+    margin: 0;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+/* Site subtitle:
+   - Styled with a monospace font for a slightly more "raw" or technical feel.
+   - A left accent border (green) provides visual separation and emphasis.
+   - `flex-basis: 100%` ensures it takes full width if header items wrap.
+*/
+header .subtitle {
+    flex-basis: 100%;
+    margin-top: 0.2em;
+    margin-left: 5px; /* Small indent if on the same line as title. */
+    padding-left: 10px;
+    font-family: monospace;
+    font-size: 1em;
+    color: #555555; /* Darker gray for readability on white. */
+    border-left: 3px solid var(--accent-color-green);
+}
+
+/* ==========================================================================
+   Navigation
+   ========================================================================== */
+
+/* Navigation bar:
+   - Stark background, padding handled by list items.
+   - Inherits border and radius from the semantic section styling.
+*/
+nav {
+    padding: 0; /* Padding handled by ul/li */
+    background-color: var(--background-color);
+    /* border and border-radius inherited from semantic section styling */
+}
+
+/* Navigation list:
+   - Uses flexbox to arrange navigation items horizontally and centered.
+   - Default list styling removed.
+*/
+nav ul {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+/* Navigation list items:
+   - Margin removed as borders are used for separation.
+*/
+nav ul li {
+    margin-right: 0;
+}
+
+/* Navigation links:
+   - Styled for prominence: bold, uppercase, generous padding.
+   - A right border separates items, except for the last one.
+   - Hover/active state uses yellow accent for clear feedback.
+*/
+nav ul li a {
+    display: block;
+    padding: 1em 2em;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-right: 3px solid var(--border-color);
+}
+
+nav ul li:last-child a {
+    border-right: none;
+}
+
+nav ul li a:hover,
+nav ul li.active a {
+    background-color: var(--accent-color-yellow);
+    color: var(--text-color);
+}
+
+/* ==========================================================================
+   Articles & Content
+   ========================================================================== */
+
+/* Article styling:
+   - Each article is a distinct block with its own border and shadow, reinforcing the blocky aesthetic.
+   - Padding and margin provide internal and external spacing.
+*/
+article {
     padding: 1.5em;
-    border: 3px solid var(--border-color); /* Standardized border */
-    margin-bottom: 2em;
-    box-shadow: 8px 8px 0px var(--border-color); /* Standardized shadow */
-    border-radius: 6px; /* Added subtle rounding */
+    margin-bottom: 2em; /* Extra space between articles. */
+    background-color: var(--background-color);
+    border: 3px solid var(--border-color);
+    box-shadow: 8px 8px 0px var(--border-color);
+    border-radius: 6px; /* Consistent with global rounding. */
 }
 
 article h2 {
-    margin-top: 0;
+    margin-top: 0; /* Remove default top margin from headings within articles. */
 }
 
+/* Article title links:
+   - Styled to be prominent and integrate with the article's text color.
+   - Hover effect uses the global link hover variables for consistency.
+*/
 article h2 a {
     color: var(--text-color);
-    text-decoration: none;
-    font-size: 2em;
+    text-decoration: none; /* Remove underline for a cleaner look, hover provides feedback. */
+    font-size: 2em; /* Large font size for impact. */
 }
 
 article h2 a:hover {
@@ -83,182 +264,158 @@ article h2 a:hover {
     background-color: var(--link-hover-bg-color);
 }
 
+/* Article metadata (date, author, etc.):
+   - Subtly styled with lighter text and a bottom border for separation.
+   - A left accent border provides a small visual highlight.
+   - Uppercase text for a more formal, structured feel.
+*/
 .article-info {
-    font-size: 0.9em;
-    color: #555555; /* Slightly lighter text for info */
     margin-bottom: 1em;
-    border-bottom: 1px solid var(--border-color);
     padding-bottom: 0.5em;
-    text-transform: uppercase;
-    border-left: 5px solid var(--accent-color-cyan); /* Cyan accent for article info */
     padding-left: 10px;
+    font-size: 0.9em;
+    color: #555555;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-color);
+    border-left: 5px solid var(--accent-color-cyan); /* Cyan accent to draw attention. */
 }
 
-/* Ensure metadata under article titles has some space */
+/* Ensures space for metadata elements like date/tags if they are `small` elements within an article header.
+   This is to prevent them from bunching up against the title.
+*/
 article header div small {
-    display: inline-block; /* To allow margin-top */
+    display: inline-block; /* Allows margin-top to be applied. */
     margin-top: 0.5em;
 }
 
-aside {
-    flex: 1; /* Takes 1 part of the space */
-    background-color: var(--background-color); /* Consistent background */
-    padding: 1.5em;
-    /* General 'border: 3px solid var(--border-color)' and 'border-radius: 6px' from group selector apply */
-}
+/* ==========================================================================
+   Sidebar Content
+   ========================================================================== */
 
+/* Sidebar headings:
+   - Styled with a bottom border and uppercase text for clear sectioning within the sidebar.
+*/
 aside h2 {
     margin-top: 0;
-    font-size: 1.5em;
-    border-bottom: 2px solid var(--border-color);
     padding-bottom: 0.3em;
+    font-size: 1.5em;
     text-transform: uppercase;
-    color: var(--text-color); /* Changed from magenta to default text color */
+    color: var(--text-color);
+    border-bottom: 2px solid var(--border-color);
 }
 
+/* Sidebar lists (e.g., categories, tags):
+   - Removes default list styling for a cleaner look.
+*/
 aside ul {
-    list-style-type: none;
+    margin: 0;
     padding: 0;
+    list-style-type: none;
 }
 
+/* Sidebar list item links:
+   - Links are displayed as blocks for larger clickable areas.
+   - A dashed bottom border separates items, adding a subtle visual texture.
+   - Hover effect uses a green accent, differentiating from main content link hovers.
+*/
 aside ul li a {
-    text-decoration: none;
-    color: var(--link-color);
     display: block;
     padding: 0.3em 0;
-    border-bottom: 1px dashed var(--border-color); /* Dashed border for links in aside */
+    text-decoration: none;
+    color: var(--link-color);
+    border-bottom: 1px dashed var(--border-color);
 }
+
 aside ul li:last-child a {
-    border-bottom: none;
+    border-bottom: none; /* Removes border from the last item for a cleaner end. */
 }
 
 aside ul li a:hover {
     color: var(--link-hover-text-color);
-    background-color: var(--accent-color-green); /* Green hover for aside links */
+    background-color: var(--accent-color-green);
 }
 
+/* ==========================================================================
+   Footer
+   ========================================================================== */
 
-header {
-
-    padding: 1em 1.5em; /* Reduced top/bottom padding */
-    background-color: var(--background-color); /* Changed to white background */
-    color: var(--text-color); /* Changed to black text */
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    border: 5px solid var(--border-color); /* Uniform thicker black border */
-    box-shadow: 8px 8px 0px var(--border-color); /* Added drop shadow */
-    border-radius: 6px; /* Added subtle rounding */
-    /* Removed specific border-bottom-width and border-top accent */
-}
-
-/* Link colors in header suitable for white background */
-header a {
-    color: var(--link-color); /* Standard blue links */
-    text-decoration: underline; /* Standard underline */
-}
-header a:hover {
-    color: var(--link-hover-text-color); /* Black text */
-    background-color: var(--link-hover-bg-color); /* Yellow background */
-    text-decoration: none;
-}
-
-.site-logo {
-    max-height: 60px; /* Slightly larger logo */
-    margin-right: 20px;
-    border: 2px solid var(--accent-color-yellow); /* Yellow accent border for logo - RETAINED as an accent */
-}
-
-header h1 {
-    margin: 0;
-    font-size: 3em; /* Large, bold title */
-    font-weight: bold;
-}
-
-header h1 a {
-    /* Styles inherited from 'header a' are now appropriate */
-    /* color: var(--link-color); */ /* Explicitly ensure it if needed, but should inherit */
-    /* text-decoration: underline; */
-}
-
-header h1 a:hover {
-    /* Styles inherited from 'header a:hover' are now appropriate */
-    /* color: var(--link-hover-text-color); */
-    /* background-color: var(--link-hover-bg-color); */
-}
-
-header .subtitle {
-    color: #555555; /* Darker subtitle for white background */
-    font-size: 1em;
-    margin-top: 0.2em;
-    margin-left: 5px;
-    flex-basis: 100%;
-    font-family: monospace; /* Monospace for subtitle for a raw feel */
-    border-left: 3px solid var(--accent-color-green); /* Green accent for subtitle */
-    padding-left: 10px;
-}
-
-
-nav {
-    background-color: var(--background-color); /* Stark background for nav */
-    padding: 0; /* Padding handled by ul/li */
-    /* General 'border: 3px solid var(--border-color)' and 'border-radius: 6px' from group selector apply */
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center; /* Center nav items */
-}
-
-nav ul li {
-    margin-right: 0; /* Remove margin, use borders for separation */
-}
-
-nav ul li a {
-    color: var(--text-color);
-    text-decoration: none;
-    padding: 1em 2em; /* Generous padding */
-    display: block;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-right: 3px solid var(--border-color);
-}
-nav ul li:last-child a {
-    border-right: none;
-}
-
-nav ul li a:hover, nav ul li.active a {
-    background-color: var(--accent-color-yellow); /* Yellow hover for nav items */
-    color: var(--text-color);
-}
-
+/* Footer section:
+   - Similar to the header, it's a prominent block with thick borders and shadow.
+   - Text is centered.
+   - Background is white, text is black.
+*/
 footer {
-    text-align: center;
-    font-size: 1em; /* Slightly larger footer text */
-    background-color: var(--background-color); /* Changed to white background */
-    color: var(--text-color); /* Changed to black text */
     padding: 2em 1.5em;
-    border: 5px solid var(--border-color); /* Uniform thicker black border */
-    box-shadow: 8px 8px 0px var(--border-color); /* Added drop shadow */
-    border-radius: 6px; /* Added subtle rounding */
-    /* Removed specific border-top-width and border-bottom accent */
+    text-align: center;
+    font-size: 1em;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 5px solid var(--border-color);
+    box-shadow: 8px 8px 0px var(--border-color);
+    /* border-radius inherited from semantic section styling */
 }
 
-footer a {
-    color: var(--link-color); /* Standard blue links */
-    text-decoration: underline; /* Standard underline */
+/* ==========================================================================
+   Links & Utilities
+   ========================================================================== */
+
+/* General anchor link styling:
+   - Default links are blue, underlined, and bold for emphasis.
+   - Hover effect uses global variables for consistency (yellow background, black text).
+*/
+a {
+    color: var(--link-color);
+    text-decoration: underline;
+    font-weight: bold;
 }
+
+a:hover {
+    color: var(--link-hover-text-color);
+    background-color: var(--link-hover-bg-color);
+    text-decoration: none; /* Remove underline on hover as background change provides feedback. */
+}
+
+/* Header links:
+   - Standard link styling (blue, underlined) for clear identification.
+   - Hover effect uses global variables for consistency.
+*/
+header a {
+    color: var(--link-color);
+    text-decoration: underline;
+}
+
+header a:hover {
+    color: var(--link-hover-text-color);
+    background-color: var(--link-hover-bg-color);
+    text-decoration: none; /* Remove underline on hover as background provides feedback. */
+}
+
+/* Header H1 links inherit from 'header a' and 'header a:hover',
+   so no specific overrides are needed unless a different style is desired.
+*/
+header h1 a { } /* No override needed, inherits from header a */
+header h1 a:hover { } /* No override needed, inherits from header a:hover */
+
+
+/* Footer links:
+   - Standard link styling, consistent with header links.
+*/
+footer a {
+    color: var(--link-color);
+    text-decoration: underline;
+}
+
 footer a:hover {
-    color: var(--link-hover-text-color); /* Black text */
-    background-color: var(--link-hover-bg-color); /* Yellow background */
+    color: var(--link-hover-text-color);
+    background-color: var(--link-hover-bg-color);
     text-decoration: none;
 }
 
-/* General links */
-/* Using a class for more targeted link coloring if needed, e.g., for specific sections */
+/* Utility classes for colored links:
+   - Provide options for applying specific accent colors to links if needed,
+     overriding the default link color.
+   - Hover states change background to the accent color and text to black for readability.
+*/
 .link-cyan { color: var(--accent-color-cyan); }
 .link-magenta { color: var(--accent-color-magenta); }
 .link-green { color: var(--accent-color-green); }
@@ -269,130 +426,162 @@ footer a:hover {
 .link-green:hover { background-color: var(--accent-color-green); color: var(--text-color); }
 .link-red:hover { background-color: var(--accent-color-red); color: var(--text-color); }
 
+/* ==========================================================================
+   Code Blocks & Inline Code
+   ========================================================================== */
 
-a {
-    color: var(--link-color);
-    text-decoration: underline;
-    font-weight: bold;
+/* Styles for code blocks (e.g., <pre>):
+   - Aims for a "dot-matrix printer paper" or "green bar paper" effect.
+   - Uses a repeating linear gradient for striped background (pale cyan and pale yellow/cornsilk).
+   - A subtle border helps define the block.
+   - Overflow-x allows horizontal scrolling for long code lines.
+   - Uses IBM Plex Mono for a retro-tech feel, with fallbacks.
+   - Reduced font size and adjusted line height to align with the striped background.
+   - `white-space: pre-wrap` allows wrapping while preserving formatting.
+   - Sharp corners (border-radius: 0) contribute to the raw, functional aesthetic.
+*/
+pre {
+    padding: 1em;
+    overflow-x: auto;
+    font-family: 'IBM Plex Mono', "Courier New", Courier, monospace;
+    font-size: 0.8em;
+    line-height: 1.5; /* Each color band is 1.5em high. */
+    color: #222; /* Dark gray text for readability on light striped background. */
+    background-color: #e0ffff; /* Base color for the gradient. */
+    background-image: repeating-linear-gradient(
+        to bottom,
+        #e0ffff,    /* Pale Cyan stripe. */
+        #e0ffff 1.5em,
+        #fff8dc 1.5em, /* Pale Yellow (Cornsilk) stripe. */
+        #fff8dc 3em
+    );
+    border: 1px solid #bbb;
+    border-radius: 0; /* Sharp corners for a more blocky, less refined look. */
+    white-space: pre-wrap;
+    /* Optional: Uncomment these to match the neo-brutalist borders/shadows of other elements. */
+    /* border: 3px solid var(--border-color); */
+    /* box-shadow: 5px 5px 0px var(--border-color); */
 }
 
-a:hover {
-    color: var(--link-hover-text-color);
-    background-color: var(--link-hover-bg-color);
-    text-decoration: none;
+/* Styling for inline code (e.g., <code>, <tt>):
+   - Consistent monospace font with code blocks.
+   - Slightly different background to differentiate from surrounding text.
+   - Subtle padding and border for definition.
+*/
+code,
+tt {
+    padding: 0.2em 0.4em;
+    font-family: 'IBM Plex Mono', "Courier New", Courier, monospace;
+    font-size: 0.8em;
+    background-color: #e8e8e8; /* Light gray background. */
+    color: #222; /* Consistent text color with pre blocks. */
+    border: 1px solid #ccc;
+    border-radius: 3px; /* Small radius for inline elements. */
 }
 
+/* Specific styling for <code> elements inside <pre> blocks:
+   - Avoids double background colors or borders.
+   - Ensures the inner <code> inherits the <pre> block's styling seamlessly.
+*/
+pre code {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+}
 
-/* Responsive Design Adjustments */
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+/* Responsive Design Adjustments:
+   - Modifies layout and styling for smaller screens to ensure usability.
+*/
 @media (max-width: 768px) {
+    /* Container width increased slightly for smaller screens. */
     .container {
         width: 95%;
     }
 
+    /* Header items stack vertically and are centered on smaller screens. */
     header {
         flex-direction: column;
-        align-items: center; /* Center header items on mobile */
+        align-items: center;
         text-align: center;
     }
 
     .site-logo {
-        margin-bottom: 10px;
-        margin-right: 0;
+        margin-right: 0; /* Remove right margin. */
+        margin-bottom: 10px; /* Space below logo when stacked. */
     }
 
     header h1 {
-        font-size: 2.5em;
+        font-size: 2.5em; /* Slightly smaller title on tablets. */
     }
 
     header .subtitle {
-        margin-left: 0;
-        text-align: center;
+        margin-left: 0; /* Remove left margin when stacked. */
+        text-align: center; /* Center subtitle text. */
     }
 
+    /* Navigation items stack vertically and stretch to full width. */
     nav ul {
         flex-direction: column;
-        align-items: stretch; /* Stretch nav items */
+        align-items: stretch;
     }
 
+    /* Navigation links get a bottom border for separation when stacked. */
     nav ul li a {
+        text-align: center;
         border-right: none;
         border-bottom: 3px solid var(--border-color);
-        text-align: center;
     }
 
     nav ul li:last-child a {
-        border-bottom: none;
+        border-bottom: none; /* Remove border from the last item. */
     }
 
+    /* Content wrapper (main and aside) stacks vertically. */
     .content-wrapper {
         flex-direction: column;
     }
 
-    main, aside {
-        flex: 1;
-        width: auto; /* Let flexbox handle width */
+    /* Main content and sidebar take full width and have reduced shadow on smaller screens. */
+    main,
+    aside {
+        flex: 1; /* Reset flex sizing. */
+        width: auto;
         margin-left: 0;
         margin-right: 0;
-        box-shadow: 5px 5px 0px var(--border-color); /* Standardized smaller shadow */
+        box-shadow: 5px 5px 0px var(--border-color); /* Smaller shadow for smaller elements. */
     }
 
     article {
-        box-shadow: 5px 5px 0px var(--border-color); /* Standardized smaller shadow */
+        box-shadow: 5px 5px 0px var(--border-color); /* Consistent smaller shadow for articles. */
     }
 }
 
+/* Further adjustments for very small screens (smartphones). */
 @media (max-width: 480px) {
     header h1 {
-        font-size: 2em;
+        font-size: 2em; /* Further reduce title size. */
     }
+
     header .subtitle {
-        font-size: 0.9em;
+        font-size: 0.9em; /* Smaller subtitle. */
     }
+
     article h2 a {
-        font-size: 1.5em;
+        font-size: 1.5em; /* Smaller article titles. */
     }
-    main, header, nav, footer, aside, article {
+
+    /* Reduce padding on major layout blocks for more content space. */
+    main,
+    header,
+    nav,
+    footer,
+    aside,
+    article {
         padding: 1em;
     }
-}
-
-/* Styles for code blocks - Added for dot-matrix effect */
-pre {
-    background-color: #e0ffff; /* Base for striped background - pale cyan */
-    background-image: repeating-linear-gradient(
-        to bottom,
-        #e0ffff, /* Pale Cyan */
-        #e0ffff 1.5em, /* Stripe height */
-        #fff8dc 1.5em, /* Pale Yellow (Cornsilk) */
-        #fff8dc 3em   /* Stripe height */
-    );
-    border: 1px solid #bbb;    /* Slightly darker border for better definition with stripes */
-    padding: 1em;
-    overflow-x: auto;          /* Allow horizontal scrolling for long lines */
-    font-family: 'IBM Plex Mono', "Courier New", Courier, monospace; /* IBM Plex Mono, then fallbacks */
-    font-size: 0.8em;          /* Reduced font size to 80% */
-    color: #222;               /* Dark gray text */
-    line-height: 1.5;          /* Adjusted line height to fit stripes (1.5em per color band) */
-    white-space: pre-wrap;     /* Wrap long lines but preserve formatting */
-    /* Ensure consistency with neo-brutalist borders if desired, e.g., border: 3px solid var(--border-color); */
-    /* box-shadow: 5px 5px 0px var(--border-color); /* Optional: match shadow style */
-    border-radius: 0; /* Sharp corners as requested */
-}
-
-/* Styling for inline code, including <tt> used by RST - Added for dot-matrix effect */
-code, tt {
-    font-family: 'IBM Plex Mono', "Courier New", Courier, monospace; /* IBM Plex Mono, then fallbacks */
-    font-size: 0.8em;          /* Reduced font size to 80% */
-    background-color: #e8e8e8; /* Slightly different background for inline code */
-    padding: 0.2em 0.4em;
-    border-radius: 3px; /* Standard small radius for inline elements */
-    color: #222; /* Ensure text color matches block code for consistency */
-    border: 1px solid #ccc; /* Subtle border for inline code */
-}
-
-pre code {
-    background-color: transparent; /* Avoid double background for code inside pre */
-    padding: 0;
-    border-radius: 0;
-    border: none; /* Remove border for code spans within pre, as pre has its own */
 }
