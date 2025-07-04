@@ -35,15 +35,32 @@ SOCIAL = (('LinkedIn', 'https://www.linkedin.com/in/jeremy-rist-83096822/'),
 DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+RELATIVE_URLS = True
+
+# Article and page paths - recommended by theme AGENTS.md
+ARTICLE_PATHS = [''] # Look for articles in content/ root
+PAGE_PATHS = ['pages'] # Assuming pages are in 'content/pages/'
+ARTICLE_SAVE_AS = '{slug}.html'
+ARTICLE_URL = '{slug}.html'
+PAGE_SAVE_AS = 'pages/{slug}.html'
+PAGE_URL = 'pages/{slug}.html'
+# Category and Tag paths, if needed by theme or for organization
+CATEGORY_SAVE_AS = 'category/{slug}.html'
+CATEGORY_URL = 'category/{slug}.html'
+TAG_SAVE_AS = 'tag/{slug}.html'
+TAG_URL = 'tag/{slug}.html'
 
 PLUGIN_PATHS = ['pelican/plugins']
-PLUGINS = ['humans'] # When using PLUGIN_PATHS, short names are often used
+PLUGINS = ['humans']
+
 
 THEME = 'themes/BinderPaper' # Direct relative path to the theme
 # Removed THEME_PATHS
 # Removed THEME_TEMPLATES_OVERRIDES
 # TEMPLATE_PAGES = {'../templates/base.html': 'base.html'} # This line was incorrect and likely causing TypeErrors
+# INDEX_SAVE_AS = 'index.html' # Removing this to see if it helps
+
+
 MENUITEMS = [
     ('Archives', '/archives.html'),
     ('Categories', '/categories.html'),
@@ -53,27 +70,10 @@ DISPLAY_CATEGORIES_ON_MENU = True
 DISPLAY_PAGES_ON_MENU = True # If you have static pages like 'About'
 
 DIRECT_TEMPLATES = ['index', 'categories', 'authors', 'archives'] # Add other templates as needed
-PAGINATED_TEMPLATES = {'index': None} # Updated to dict format; None uses DEFAULT_PAGINATION
+# PAGINATED_TEMPLATES = {'index': None} # Updated to dict format; None uses DEFAULT_PAGINATION - Removing for test
+
 
 # Humans.txt Plugin Settings
-# Example configuration:
-# HUMANS_TEAM = [
-#     {'Team member': 'Name', 'Role': 'Developer', 'Contact': 'email@example.com'},
-#     'Another Team Member - Designer',
-# ]
-# HUMANS_THANKS = [
-#     'Contributor Name - Contribution',
-#     ('Another Contributor', 'Their Contribution'),
-# ]
-# HUMANS_SITE = {
-#     'Standards': 'HTML5, CSS3, WCAG AAA',
-#     'Components': 'Pelican, Jinja2, MyCustomTheme',
-#     'Software': 'Python, VSCode',
-# }
-#
-# By default, if these are not set, the plugin will use generic information.
-# You can override specific sections or leave them for defaults.
-# For example, to only specify the team:
 HUMANS_TEAM = [
     {'Author': 'Jeremy Rist', 'Role': 'Owner/Developer', 'Contact': 'jeremy@rist.dev'}
 ]
