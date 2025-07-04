@@ -13,6 +13,7 @@ body {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px 30px 20px 60px; /* Extra left padding for margin line */
+    background-color: #fdfaf0; /* Paper color */
     background-image:
         repeating-linear-gradient(to bottom,
             transparent,
@@ -64,7 +65,7 @@ a:hover {
 /* Header, Nav, Footer - basic placeholders for now */
 header.main-header {
     display: inline-block; /* Allow sizing and prevent full width */
-    background-color: #FFFFE0; /* LightYellow for Post-it effect */
+    background-color: #fff8b0; /* More vibrant yellow for Post-it effect */
     color: #333; /* Darker text for contrast on yellow */
     padding: 20px;
     margin-bottom: 20px; /* Space below the Post-it */
