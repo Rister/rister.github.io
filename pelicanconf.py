@@ -3,8 +3,8 @@ SITENAME = 'My Portfolio'
 SITESUBTITLE = 'A Showcase of Projects and Skills'
 SITEURL = ''
 SITEDESCRIPTION = 'Welcome to My Portfolio, a collection of my work, thoughts, and experiments.'
-SITEIMAGE = 'theme/static/images/logo.png' # Path relative to SITEURL
-FAVICON = 'theme/static/images/favicon.ico' # Path relative to SITEURL
+SITEIMAGE = 'static/images/logo.png' # Path relative to SITEURL
+FAVICON = 'static/images/favicon.ico' # Path relative to SITEURL
 
 
 import datetime
