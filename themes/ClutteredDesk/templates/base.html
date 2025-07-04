@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
-    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/BinderPaper.css">
+    <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/ClutteredDesk.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
@@ -64,14 +64,53 @@
             </nav>
         </div> <!-- End of top-area-wrapper -->
 
-        <main>
-            {% block content %}
-            {% endblock content %}
-        </main>
+        <div class="main-content-area"> <!-- New wrapper for main and aside -->
+            <main>
+                {% block content %}
+                {% endblock content %}
+            </main>
+            <aside class="sidebar">
+                {% block sidebar %}
+                <!-- Sidebar content will be defined by other templates or added here directly if static -->
+                {% if DISPLAY_CATEGORIES_ON_MENU %}
+                <section class="widget">
+                    <h2>Categories</h2>
+                    <ul>
+                        {% for cat, null in categories %}
+                        <li><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </section>
+                {% endif %}
+
+                {% if LINKS %}
+                <section class="widget">
+                    <h2>Links</h2>
+                    <ul>
+                        {% for name, link in LINKS %}
+                        <li><a href="{{ link }}">{{ name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </section>
+                {% endif %}
+
+                {% if SOCIAL %}
+                <section class="widget">
+                    <h2>Social</h2>
+                    <ul>
+                        {% for name, link in SOCIAL %}
+                        <li><a href="{{ link }}" target="_blank" rel="noopener noreferrer">{{ name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </section>
+                {% endif %}
+                {% endblock sidebar %}
+            </aside>
+        </div> <!-- End of main-content-area -->
 
         <footer class="main-footer">
             <p>
-                Powered by <a href="https://getpelican.com/">Pelican</a>. Theme: BinderPaper.
+                Powered by <a href="https://getpelican.com/">Pelican</a>. Theme: ClutteredDesk.
                 {% if FOOTER_TEXT %}{{ FOOTER_TEXT }}{% endif %}
             </p>
         </footer>
