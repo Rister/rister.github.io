@@ -3,8 +3,8 @@ SITENAME = 'My Portfolio'
 SITESUBTITLE = 'A Showcase of Projects and Skills'
 SITEURL = ''
 SITEDESCRIPTION = 'Welcome to My Portfolio, a collection of my work, thoughts, and experiments.'
-SITEIMAGE = 'theme/static/images/logo.png' # Path relative to SITEURL
-FAVICON = 'theme/static/images/favicon.ico' # Path relative to SITEURL
+SITEIMAGE = 'static/images/logo.png' # Path relative to SITEURL
+FAVICON = 'static/images/favicon.ico' # Path relative to SITEURL
 
 
 import datetime
@@ -40,7 +40,7 @@ DEFAULT_PAGINATION = 10
 PLUGIN_PATHS = ['pelican/plugins']
 PLUGINS = ['humans'] # When using PLUGIN_PATHS, short names are often used
 
-THEME = 'themes/risterio-simple' # Direct relative path to the theme
+THEME = 'themes/NeoBrutalist' # Direct relative path to the theme
 # Removed THEME_PATHS
 # Removed THEME_TEMPLATES_OVERRIDES
 # TEMPLATE_PAGES = {'../templates/base.html': 'base.html'} # This line was incorrect and likely causing TypeErrors
