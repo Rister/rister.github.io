@@ -20,6 +20,7 @@ RELATIVE_URLS = True # Good for development, set to False in publishconf.py
 
 ARTICLE_PATHS = [''] # Look for articles in content/ root
 PAGE_PATHS = ['pages'] # Look for pages in content/pages/
+STATIC_PATHS = ['static'] # Directories to copy to output, relative to PATH (content/)
 
 # Structure for generated URLs and file paths
 ARTICLE_SAVE_AS = '{slug}.html'
