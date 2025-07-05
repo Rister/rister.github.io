@@ -407,8 +407,8 @@ li.sticker-item {
 
 .sticker-number {
     position: absolute;
-    left: -5.7rem; /* Adjusted based on user feedback */
-    top: 6.3rem;   /* Adjusted based on user feedback */
+    left: 0;
+    top: 0; /* Adjust as needed, might need fine-tuning based on article content alignment */
     width: 40px;
     height: 40px;
     border-radius: 50%; /* Make it round */
@@ -422,7 +422,7 @@ li.sticker-item {
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
     counter-increment: post-counter; /* Increment counter for each item */
     content: counter(post-counter); /* Display counter value */
-    z-index: 10; /* Increased z-index to ensure it's on top */
+    z-index: 1; /* Ensure sticker is above article content if overlap occurs */
 }
 
 /* Variations for sticker color and rotation */
