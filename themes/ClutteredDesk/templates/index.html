@@ -5,13 +5,12 @@
 {% block content %}
 <section id="content" class="body">
     <h2>All Articles</h2>
-    <ol id="post-list" class="hfeed">
+    <div id="post-list" class="hfeed">
         {% for article in articles_page.object_list %}
-        <li class="sticker-item">
-            <span class="sticker-number"></span> <!-- Number will be added by CSS counter -->
+        <div class="sticker-item {{ loop.cycle('icon-style-1', 'icon-style-2', 'icon-style-3') }}">
             <article class="hentry">
                 <header>
-                    <h3 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h3>
+                    <h3 class="entry-title"><i class="fas fa-sticky-note"></i>&nbsp;<a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h3>
                     <p class="article-meta">
                         {% if article.date %}
                         <span class="published">Date: {{ article.locale_date }}</span>
@@ -26,9 +25,9 @@
                     <a class="readmore" href="{{ SITEURL }}/{{ article.url }}">Read more...</a>
                 </div>
             </article>
-        </li>
+        </div>
         {% endfor %}
-    </ol>
+    </div>
 
     {% if articles_page.has_other_pages() %}
         {% include 'pagination.html' %}
