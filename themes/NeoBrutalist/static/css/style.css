@@ -266,6 +266,14 @@ article h2 a:hover {
     background-color: var(--link-hover-bg-color);
 }
 
+/* Style for the Font Awesome icon next to article titles */
+article header h3 .fas.fa-sticky-note {
+    font-size: 0.8em; /* Adjust size relative to the H3 font size */
+    margin-right: 0.5em; /* Space between icon and title text */
+    color: var(--text-color); /* Or a specific accent color if desired */
+    vertical-align: baseline; /* Align icon nicely with the text */
+}
+
 /* Article metadata (date, author, etc.):
    - Subtly styled with lighter text and a bottom border for separation.
    - A left accent border provides a small visual highlight.
