@@ -12,7 +12,7 @@
         {% for article in articles_page.object_list %}
         <article>
             <header>
-                <h3><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h3>
+                <h3><i class="fas fa-sticky-note"></i> <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h3>
                 <div><small>
                     Published: {{ article.locale_date }}
                     {% if article.category %}
@@ -31,7 +31,7 @@
         {% for article in articles %}
         <article>
             <header>
-                <h3><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h3>
+                <h3><i class="fas fa-sticky-note"></i> <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h3>
                 <p><small>
                     Published: {{ article.locale_date }}
                     {% if article.category %}
