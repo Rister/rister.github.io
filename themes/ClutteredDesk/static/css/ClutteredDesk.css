@@ -252,6 +252,7 @@ article img:nth-of-type(3n+2) {
     transform: rotate(1.5deg);
 }
 article img:nth-of-type(3n+0) { /* or article img:nth-of-type(3n) */
+
     transform: rotate(3deg);
 }
 
@@ -411,9 +412,11 @@ aside.sidebar {
         padding: 15px;
     }
 
+
     /* Reverted responsive rule for Polaroid images */
     article img {
         transform: none; /* Remove Polaroid rotation on small screens */
+
     }
 }
 
