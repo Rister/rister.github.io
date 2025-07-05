@@ -7,7 +7,8 @@
     <h2>All Articles</h2>
     <ol id="post-list" class="hfeed">
         {% for article in articles_page.object_list %}
-        <li>
+        <li class="sticker-item">
+            <span class="sticker-number"></span> <!-- Number will be added by CSS counter -->
             <article class="hentry">
                 <header>
                     <h3 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h3>

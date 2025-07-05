@@ -391,3 +391,57 @@ aside.sidebar {
         text-align: center; /* Center nav items when stacked */
     }
 }
+
+/* Sticker number styles */
+ol#post-list {
+    list-style-type: none; /* Remove default numbering */
+    counter-reset: post-counter; /* Initialize counter */
+    padding-left: 0; /* Remove default padding */
+}
+
+li.sticker-item {
+    position: relative; /* For positioning the sticker absolutely */
+    padding-left: 60px; /* Make space for the sticker */
+    margin-bottom: 20px; /* Existing or adjusted margin */
+}
+
+.sticker-number {
+    position: absolute;
+    left: 0;
+    top: 0; /* Adjust as needed, might need fine-tuning based on article content alignment */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Make it round */
+    background-color: #ffcc00; /* Default sticker color (e.g., yellow) */
+    color: #333;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    counter-increment: post-counter; /* Increment counter for each item */
+    content: counter(post-counter); /* Display counter value */
+    z-index: 1; /* Ensure sticker is above article content if overlap occurs */
+}
+
+/* Variations for sticker color and rotation */
+li.sticker-item:nth-child(3n+1) .sticker-number {
+    background-color: #ff6b6b; /* A reddish color */
+    transform: rotate(-5deg);
+}
+
+li.sticker-item:nth-child(3n+2) .sticker-number {
+    background-color: #48dbfb; /* A blueish color */
+    transform: rotate(3deg);
+}
+
+li.sticker-item:nth-child(3n+3) .sticker-number {
+    background-color: #1dd1a1; /* A greenish color */
+    transform: rotate(-2deg);
+}
+
+/* Ensure article content within sticker-item is not affected by absolute positioning of sticker */
+li.sticker-item .hentry {
+    position: relative; /* Or ensure it's block and flows normally */
+}
