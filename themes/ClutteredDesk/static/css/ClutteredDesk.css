@@ -393,3 +393,24 @@ aside.sidebar {
 }
 
 /* Sticker number styles have been removed */
+
+
+/* Styles for Font Awesome icons */
+.fa-sticky-note {
+    margin-right: 5px; /* Default spacing, can be adjusted */
+}
+
+.icon-style-1 .fa-sticky-note {
+    color: #ff6b6b; /* A reddish color */
+    transform: rotate(-5deg);
+}
+
+.icon-style-2 .fa-sticky-note {
+    color: #48dbfb; /* A blueish color */
+    transform: rotate(3deg);
+}
+
+.icon-style-3 .fa-sticky-note {
+    color: #1dd1a1; /* A greenish color */
+    transform: rotate(-2deg);
+}
