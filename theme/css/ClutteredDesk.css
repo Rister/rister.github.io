@@ -99,39 +99,41 @@ header.main-header .subtitle {
 
 /* Footer styling remains separate */
 footer.main-footer {
-    padding: 10px 0;
+    /* padding: 10px 0; */ /* Original line */
+    /* padding-top: 20px; */ /* Original line */
+    padding: 20px 0; /* Simplified and ensures 20px top/bottom padding */
     text-align: center;
     color: #555;
     margin-top: 20px; /* Add some space above the footer */
-    padding-top: 20px;
     border-top: 1px dashed #ccc; /* Separator line for the footer */
 }
 
-/* Restyling header.main-header */
+/* Modify header.main-header to be a Post-it note */
 header.main-header {
-    background-color: #e9ecef; /* Light grey, neutral block */
-    color: #343a40; /* Darker text */
-    padding: 20px;
-    margin-right: 20px;
-    text-align: left;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-    border: 1px solid #ced4da;
-    transform: none; /* Remove rotation */
-    width: auto; /* Allow width to be determined by content or flex parent */
-    min-width: 250px; /* Ensure it has some presence */
-    height: auto; /* Adjust height to content */
+    background-color: #fff8b0; /* Vibrant yellow for Post-it effect (from original Post-it style) */
+    color: #333; /* Darker text for contrast on yellow */
+    padding: 15px; /* Slightly less padding for a more compact Post-it */
+    text-align: left; /* Keep text aligned left */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2); /* Subtle shadow */
+    border: 1px solid #F0E68C; /* Khaki border for definition */
+    transform: rotate(-1.5deg); /* A fixed, slightly more pronounced rotation */
+    min-width: 200px; /* Minimum width */
+    max-width: 280px; /* Maximum width */
+    min-height: 150px; /* Minimum height, allow content to expand it */
     box-sizing: border-box;
-    border-radius: 3px;
+    flex-shrink: 0; /* Keep this from previous step */
+    border-radius: 3px; /* Keep existing radius */
 }
 
 header.main-header h1 {
-    font-size: 1.8em;
+    font-size: 1.5em; /* Adjusted for Post-it size */
     margin-top: 0;
     margin-bottom: 0.3em;
-    border-bottom: none;
+    border-bottom: none; /* Remove the blue line from main h1 style */
+    word-wrap: break-word; /* Allow long words to break */
 }
 header.main-header h1 a {
-    color: #003366;
+    color: #003366; /* Keep heading link color distinct */
     text-decoration: none;
 }
 header.main-header h1 a:hover {
@@ -139,16 +141,17 @@ header.main-header h1 a:hover {
 }
 
 header.main-header .subtitle {
-    font-size: 0.9em;
+    font-size: 0.85em; /* Adjusted for Post-it size */
     margin-bottom: 0;
-    color: #495057;
+    color: #444; /* Good contrast on yellow */
+    word-wrap: break-word; /* Allow long words to break */
 }
 
 
 /* Nav styling */
 nav { /* Targeting the nav element directly within .top-area-wrapper */
     flex-grow: 1;
-    padding-left: 10px; /* Some space from the header */
+    /* padding-left: 10px; */ /* REMOVED or set to 0 - handled by .top-area-wrapper gap */
 }
 
 nav ul {
@@ -226,6 +229,67 @@ blockquote {
     color: #444;
 }
 
+/* Polaroid Image Styling for Figures within Articles */
+article figure.polaroid-image {
+    display: inline-block; /* Or 'block' if preferred for centering via margin auto */
+    background-color: #fff;
+    border: 1px solid #E0E0E0;
+    padding: 10px;
+    padding-bottom: 60px; /* Increased slightly to ensure caption space */
+    box-shadow: 3px 3px 7px rgba(0,0,0,0.2);
+    margin: 15px; /* Margin around the figure */
+    transform: rotate(-2.5deg); /* Default rotation for the figure */
+    box-sizing: border-box;
+    position: relative; /* For absolute positioning of figcaption */
+    max-width: 100%; /* Figure itself can be responsive */
+    /* width: fit-content; /* Alternative to inline-block for sizing to content */
+}
+
+/* Style for the image tag within the Polaroid figure */
+article figure.polaroid-image img {
+    display: block; /* Image is a block within the figure */
+    max-width: 100%; /* Image scales to the padded area of the figure */
+    height: auto;
+    margin-bottom: 5px; /* Small space between image and potential top of caption area */
+    /* border-style: none; is already globally set for img */
+}
+
+/* Styling for the figcaption within the Polaroid */
+article figure.polaroid-image figcaption {
+    font-family: 'Reenie Beanie', cursive; /* Handwritten font */
+    font-size: 18px; /* A bit larger for Reenie Beanie as it tends to be small */
+    line-height: 1.2;
+    color: #333; /* Dark grey, like pencil or old ink */
+    text-align: center; /* Or 'left' if preferred */
+
+    position: absolute;
+    bottom: 10px; /* Distance from the bottom edge of the figure's padding box */
+    left: 10px; /* Distance from the left edge */
+    right: 10px; /* Distance from the right edge */
+    max-height: 40px; /* Max height for caption area */
+    overflow: hidden; /* Hide overflow if caption is too long */
+    /* Optional: add a slight rotation to the caption text itself for more effect */
+    /* transform: rotate(-0.5deg); */
+}
+
+/* Varied rotations for the Polaroid figure */
+article figure.polaroid-image:nth-of-type(3n+1) {
+    transform: rotate(-2.5deg);
+}
+article figure.polaroid-image:nth-of-type(3n+2) {
+    transform: rotate(1.5deg);
+}
+article figure.polaroid-image:nth-of-type(3n+0) {
+    transform: rotate(3deg);
+}
+
+/* Ensure the image itself doesn't have an additional browser-default border */
+/* This should be a general rule, perhaps it's already covered or should be placed more globally */
+img {
+  border-style: none;
+}
+
+
 /* Ensure the line height for text elements aligns reasonably with the paper lines */
 body, p, li, td, th, .article-meta {
     /* line-height: 24px; /* Match the repeating gradient line height - REMOVED */
@@ -247,13 +311,21 @@ article {
     border-radius: 2px; /* Very slight rounding of paper corners */
     /* Optional: slight rotation for a more casual look.
        This can be randomized with JS later if desired, or applied to :nth-child for variation.
-       transform: rotate(-0.5deg);
+       transform: rotate(-0.5deg); Remove or ensure this general one is not there if using specific ones
     */
 }
 
-article:nth-child(even) {
+/* article:nth-child(even) { */
     /* transform: rotate(0.3deg); /* Vary rotation for visual interest */
+/* } */
+
+article:nth-child(odd) {
+    transform: rotate(0.3deg); /* Subtle rotation for odd articles */
 }
+article:nth-child(even) {
+    transform: rotate(-0.2deg); /* Subtle, different rotation for even articles */
+}
+
 
 /* Sidebar Widget Styling - as Post-it notes or small cards */
 aside.sidebar .widget {
@@ -320,6 +392,14 @@ aside.sidebar {
     /* Widgets inside aside are already styled */
 }
 
+/* New styles for top-area layout - Placed here as per comment "above the responsive block" */
+.top-area-wrapper {
+    display: flex;
+    align-items: flex-start; /* Vertically aligns items to the top. Consider 'center' if nav and header heights are similar or desired. */
+    margin-bottom: 20px; /* Space below the header/nav area */
+    gap: 20px; /* Space between header and nav elements */
+}
+
 
 /* Responsive considerations */
 @media (max-width: 768px) { /* Adjusted breakpoint */
@@ -330,13 +410,16 @@ aside.sidebar {
     }
 
     header.main-header {
-        margin-right: 0;
-        margin-bottom: 15px;
-        min-width: 0; /* Allow it to shrink fully */
+        /* margin-right: 0; */ /* Not strictly needed due to gap, but harmless */
+        /* margin-bottom: 15px; */ /* REMOVED - .top-area-wrapper's gap handles this */
+        /* min-width: 0; */ /* REMOVED - let base min-width and content dictate */
+        transform: none; /* Straighten header on small screens */
+        /* The header will stretch up to its max-width: 280px */
     }
 
     nav {
         padding-left: 0; /* Remove padding when stacked */
+        width: 100%; /* Ensure nav takes full available width to center its content properly */
     }
 
     nav ul {
@@ -354,6 +437,19 @@ aside.sidebar {
     .content-wrapper {
         margin: 10px;
         padding: 15px;
+    }
+
+    /* Update responsive rule for new Polaroid structure */
+    article figure.polaroid-image {
+        transform: none !important; /* Remove Polaroid rotation on small screens, ensure override */
+        /* Consider reducing margin/padding if needed for figure on small screens */
+        /* e.g., margin: 10px 5px; padding: 8px; padding-bottom: 40px; */
+    }
+
+    /* If figcaption text size needs adjustment on small screens, add here: */
+    article figure.polaroid-image figcaption {
+        font-size: 15px; /* Reduce caption font size for smaller screens */
+        /* Adjust other properties like 'bottom' or 'max-height' if necessary */
     }
 }
 
