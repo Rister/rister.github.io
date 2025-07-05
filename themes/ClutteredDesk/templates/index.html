@@ -7,10 +7,12 @@
     <h2>All Articles</h2>
     <div id="post-list" class="hfeed">
         {% for article in articles_page.object_list %}
+
         <div class="sticker-item {{ loop.cycle('icon-style-1', 'icon-style-2', 'icon-style-3') }}">
             <article class="hentry">
                 <header>
                     <h3 class="entry-title"><i class="fas fa-sticky-note"></i>&nbsp;<a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h3>
+
                     <p class="article-meta">
                         {% if article.date %}
                         <span class="published">Date: {{ article.locale_date }}</span>
