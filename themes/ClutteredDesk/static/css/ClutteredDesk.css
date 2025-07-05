@@ -229,6 +229,42 @@ blockquote {
     color: #444;
 }
 
+/* Polaroid Image Styling for Images within Articles */
+article img {
+    display: inline-block; /* Allow transform, shadow, and flow with text */
+    background-color: #fff; /* White background for the Polaroid frame */
+    border: 1px solid #E0E0E0; /* A slightly softer border for the paper edge */
+    padding: 10px; /* Padding around the image, creating the main border */
+    padding-bottom: 50px; /* Extra padding at the bottom for the 'caption' area illusion */
+    box-shadow: 3px 3px 7px rgba(0,0,0,0.2); /* Shadow for the Polaroid */
+
+    /* Intrinsic size of image will be respected, up to max-width/max-height */
+    max-width: calc(100% - 22px); /* Adjust max-width to account for padding+border (10px*2 + 1px*2) to fit its container */
+    height: auto; /* Maintain aspect ratio */
+    box-sizing: border-box; /* Padding and border are part of the element's dimensions */
+
+    margin: 15px; /* Add some margin around the Polaroid for spacing from text or other elements */
+    transform: rotate(-2.5deg); /* Default rotation */
+}
+
+/* Varied rotations for a more random look - applied to images within an article */
+article img:nth-of-type(3n+1) {
+    transform: rotate(-2.5deg);
+}
+article img:nth-of-type(3n+2) {
+    transform: rotate(1.5deg);
+}
+article img:nth-of-type(3n+0) { /* or article img:nth-of-type(3n) */
+    transform: rotate(3deg);
+}
+
+/* Ensure the image itself doesn't have an additional browser-default border */
+/* This should be a general rule, perhaps it's already covered or should be placed more globally */
+img {
+  border-style: none;
+}
+
+
 /* Ensure the line height for text elements aligns reasonably with the paper lines */
 body, p, li, td, th, .article-meta {
     /* line-height: 24px; /* Match the repeating gradient line height - REMOVED */
@@ -376,6 +412,12 @@ aside.sidebar {
     .content-wrapper {
         margin: 10px;
         padding: 15px;
+    }
+
+    article img {
+        transform: none; /* Remove Polaroid rotation on small screens */
+        /* Consider reducing margin/padding if needed, but current setup with box-sizing should be okay */
+        /* e.g., margin: 10px; padding: 8px; padding-bottom: 35px; */
     }
 }
 
