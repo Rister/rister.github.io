@@ -229,57 +229,30 @@ blockquote {
     color: #444;
 }
 
-/* Polaroid Image Styling for Figures within Articles */
-article figure.polaroid-image {
-    display: inline-block; /* Or 'block' if preferred for centering via margin auto */
+/* Polaroid Image Styling for Images within Articles */
+article img {
+    display: inline-block;
     background-color: #fff;
     border: 1px solid #E0E0E0;
     padding: 10px;
-    padding-bottom: 60px; /* Increased slightly to ensure caption space */
+    padding-bottom: 50px; /* Standard bottom padding for Polaroid look */
     box-shadow: 3px 3px 7px rgba(0,0,0,0.2);
-    margin: 15px; /* Margin around the figure */
-    transform: rotate(-2.5deg); /* Default rotation for the figure */
-    box-sizing: border-box;
-    position: relative; /* For absolute positioning of figcaption */
-    max-width: 100%; /* Figure itself can be responsive */
-    /* width: fit-content; /* Alternative to inline-block for sizing to content */
-}
-
-/* Style for the image tag within the Polaroid figure */
-article figure.polaroid-image img {
-    display: block; /* Image is a block within the figure */
-    max-width: 100%; /* Image scales to the padded area of the figure */
+    max-width: calc(100% - 22px); /* Accounts for padding+border to fit container */
     height: auto;
-    margin-bottom: 5px; /* Small space between image and potential top of caption area */
-    /* border-style: none; is already globally set for img */
-}
-
-/* Styling for the figcaption within the Polaroid */
-article figure.polaroid-image figcaption {
-    font-family: 'Reenie Beanie', cursive; /* Handwritten font */
-    font-size: 18px; /* A bit larger for Reenie Beanie as it tends to be small */
-    line-height: 1.2;
-    color: #333; /* Dark grey, like pencil or old ink */
-    text-align: center; /* Or 'left' if preferred */
-
-    position: absolute;
-    bottom: 10px; /* Distance from the bottom edge of the figure's padding box */
-    left: 10px; /* Distance from the left edge */
-    right: 10px; /* Distance from the right edge */
-    max-height: 40px; /* Max height for caption area */
-    overflow: hidden; /* Hide overflow if caption is too long */
-    /* Optional: add a slight rotation to the caption text itself for more effect */
-    /* transform: rotate(-0.5deg); */
-}
-
-/* Varied rotations for the Polaroid figure */
-article figure.polaroid-image:nth-of-type(3n+1) {
+    box-sizing: border-box;
+    margin: 15px;
     transform: rotate(-2.5deg);
 }
-article figure.polaroid-image:nth-of-type(3n+2) {
+
+/* Varied rotations for a more random look - applied to images within an article */
+article img:nth-of-type(3n+1) {
+    transform: rotate(-2.5deg);
+}
+article img:nth-of-type(3n+2) {
     transform: rotate(1.5deg);
 }
-article figure.polaroid-image:nth-of-type(3n+0) {
+article img:nth-of-type(3n+0) { /* or article img:nth-of-type(3n) */
+
     transform: rotate(3deg);
 }
 
@@ -439,17 +412,11 @@ aside.sidebar {
         padding: 15px;
     }
 
-    /* Update responsive rule for new Polaroid structure */
-    article figure.polaroid-image {
-        transform: none !important; /* Remove Polaroid rotation on small screens, ensure override */
-        /* Consider reducing margin/padding if needed for figure on small screens */
-        /* e.g., margin: 10px 5px; padding: 8px; padding-bottom: 40px; */
-    }
 
-    /* If figcaption text size needs adjustment on small screens, add here: */
-    article figure.polaroid-image figcaption {
-        font-size: 15px; /* Reduce caption font size for smaller screens */
-        /* Adjust other properties like 'bottom' or 'max-height' if necessary */
+    /* Reverted responsive rule for Polaroid images */
+    article img {
+        transform: none; /* Remove Polaroid rotation on small screens */
+
     }
 }
 
