@@ -43,3 +43,22 @@ This helps Gemini quickly execute common tasks.
 - `pelican content -s pelicanconf.py`: Build the site
 - `pelican content -s publishconf.py`: Build the site for publishing
 - `python -m pytest`: Run tests
+
+## Project Structure
+
+<!--
+Explain the key directories and files in your project.
+This helps Gemini navigate the codebase more effectively.
+Example:
+- `src/`: Contains all source code.
+- `tests/`: Unit and integration tests.
+- `docs/`: Project documentation.
+-->
+
+- `content/`: Contains reStructuredText and Markdown files for posts and pages.
+- `pelicanconf.py`: Main Pelican configuration file.
+- `publishconf.py`: Configuration for publishing, extends `pelicanconf.py`.
+- `themes/`: Custom themes for the Pelican site.
+- `output/`: Generated static site files.
+- `pelican/plugins/humans/`: Custom Pelican plugin.
+- `test_humans.py`: Tests for the custom Pelican plugin.
