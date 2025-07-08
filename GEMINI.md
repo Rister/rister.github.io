@@ -26,7 +26,8 @@ Specify your coding style and conventions here. For example:
 - Use a specific naming convention for variables and functions.
 -->
 
-- Use `black` for Python code formatting.
+- Use `uv` for python project and dependency management.
+- Use `ruff` for Python code formatting and linting.
 - Follow PEP 8 guidelines.
 
 ## Important Commands
@@ -73,5 +74,14 @@ For example, you might tell Gemini to:
 - Always ask for confirmation before making significant changes.
 -->
 
+- Always make changes in a git branch.
+    - Create a new git branch for a new unit of work.
 - Always ask for confirmation before making significant changes.
 - When suggesting code, provide examples that are directly applicable to the project's existing codebase.
+- Maintain a tidy code base.
+    - Make sure code is readable
+    - Ensure that comments explain:
+        - Non-obvious WHY
+        - Confusing WHAT
+        - A HOW that is NOT intuitive
+    - Create Comments to group code in a logical fashion.
