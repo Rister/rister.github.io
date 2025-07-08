@@ -49,6 +49,7 @@ This helps Gemini quickly execute common tasks.
 - `pelican content -s pelicanconf.py`: Build the site
 - `pelican content -s publishconf.py`: Build the site for publishing
 - `python -m pytest`: Run tests
+- `gh`: GitHub CLI for interacting with GitHub repositories.
 
 ## Project Structure
 
