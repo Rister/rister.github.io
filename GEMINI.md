@@ -16,3 +16,15 @@ This helps Gemini understand the bigger picture and provide more relevant assist
 -->
 
 This is a personal blog and portfolio website built with Pelican, a static site generator in Python.
+
+## Coding Style and Conventions
+
+<!--
+Specify your coding style and conventions here. For example:
+- Use black for Python code formatting.
+- Follow PEP 8 guidelines.
+- Use a specific naming convention for variables and functions.
+-->
+
+- Use `black` for Python code formatting.
+- Follow PEP 8 guidelines.
