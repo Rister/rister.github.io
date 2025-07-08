@@ -30,6 +30,7 @@ ARTICLE_PATHS = [""]  # Look for articles in content/ root
 PAGE_PATHS = ["pages"]  # Look for pages in content/pages/
 STATIC_PATHS = ["static"]  # Directories to copy to output, relative to PATH (content/)
 
+
 # Structure for generated URLs and file paths
 ARTICLE_SAVE_AS = "{slug}.html"
 ARTICLE_URL = "{slug}.html"
@@ -96,3 +97,7 @@ HUMANS_SITE = {
 # Defines which templates to render directly (e.g., index, archives, categories pages).
 # These are typically top-level pages of your site.
 DIRECT_TEMPLATES = ["index", "categories", "authors", "archives"]
+
+EXTRA_PATH_METADATA = {
+    'static/images/placeholder.png': {'path': 'images/placeholder.png'},
+}
