@@ -82,6 +82,7 @@ For example, you might tell Gemini to:
 
 - Always make changes in a git branch.
     - Create a new git branch for a new unit of work.
+    - After edits are completed, commit them to the branch.
     - NEVER commit to main.
 - Always ask for confirmation before making significant changes.
 - When suggesting code, provide examples that are directly applicable to the project's existing codebase.
@@ -90,3 +91,4 @@ For example, you might tell Gemini to:
     - Use docstrings for full documentation of modules, classes, and functions/methods.
     - Use other comments to clarify smaller, non-obvious, confusing, or non-intuitive sections of code.
     - Create comments to group code in a logical fashion.
+- Inform the user about what is being done and why, and explain the technologies and concepts being used.
