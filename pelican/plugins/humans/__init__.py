@@ -4,4 +4,4 @@
 # For a copy, see https://opensource.org/licenses/MIT.
 
 # -*- coding: utf-8 -*-
-from .humans import * # NOQA
+from .humans import *  # noqa: F403

@@ -81,6 +81,7 @@ For example, you might tell Gemini to:
 
 - Always make changes in a git branch.
     - Create a new git branch for a new unit of work.
+    - NEVER commit to main.
 - Always ask for confirmation before making significant changes.
 - When suggesting code, provide examples that are directly applicable to the project's existing codebase.
 - Maintain a tidy code base.
