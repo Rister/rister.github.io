@@ -1,2 +1,7 @@
+# Copyright (c) 2024 Jeremy Rist. All rights reserved.
+#
+# This work is licensed under the terms of the MIT license.
+# For a copy, see https://opensource.org/licenses/MIT.
+
 # -*- coding: utf-8 -*-
-from .humans import * # NOQA
+from .humans import *  # noqa: F403

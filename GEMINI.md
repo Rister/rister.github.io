@@ -49,6 +49,7 @@ This helps Gemini quickly execute common tasks.
 - `pelican content -s pelicanconf.py`: Build the site
 - `pelican content -s publishconf.py`: Build the site for publishing
 - `python -m pytest`: Run tests
+- `gh`: GitHub CLI for interacting with GitHub repositories.
 
 ## Project Structure
 
@@ -81,6 +82,7 @@ For example, you might tell Gemini to:
 
 - Always make changes in a git branch.
     - Create a new git branch for a new unit of work.
+    - NEVER commit to main.
 - Always ask for confirmation before making significant changes.
 - When suggesting code, provide examples that are directly applicable to the project's existing codebase.
 - Maintain a tidy code base.
