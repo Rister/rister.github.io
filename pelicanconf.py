@@ -28,7 +28,7 @@ RELATIVE_URLS = True  # Good for development, set to False in publishconf.py
 
 ARTICLE_PATHS = [""]  # Look for articles in content/ root
 PAGE_PATHS = ["pages"]  # Look for pages in content/pages/
-STATIC_PATHS = ["static"]  # Directories to copy to output, relative to PATH (content/)
+STATIC_PATHS = ["static", "images"]  # Directories to copy to output, relative to PATH (content/)
 
 
 # Structure for generated URLs and file paths
@@ -98,6 +98,4 @@ HUMANS_SITE = {
 # These are typically top-level pages of your site.
 DIRECT_TEMPLATES = ["index", "categories", "authors", "archives"]
 
-EXTRA_PATH_METADATA = {
-    'static/images/placeholder.png': {'path': 'images/placeholder.png'},
-}
+
