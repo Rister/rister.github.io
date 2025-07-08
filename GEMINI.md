@@ -62,3 +62,16 @@ Example:
 - `output/`: Generated static site files.
 - `pelican/plugins/humans/`: Custom Pelican plugin.
 - `test_humans.py`: Tests for the custom Pelican plugin.
+
+## Custom Instructions
+
+<!--
+Use this section for any specific instructions or preferences not covered above.
+For example, you might tell Gemini to:
+- Prioritize certain types of changes (e.g., performance over readability).
+- Avoid modifying specific files or directories.
+- Always ask for confirmation before making significant changes.
+-->
+
+- Always ask for confirmation before making significant changes.
+- When suggesting code, provide examples that are directly applicable to the project's existing codebase.
