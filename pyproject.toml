@@ -26,3 +26,8 @@ dependencies = [
 # not following the traditional library structure (e.g., a Pelican site).
 # We'll point it to a conventional 'src' layout.
 packages = ["src/rister_github_io"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.12.2",
+]
