@@ -39,7 +39,7 @@ Adding Images
 
 You can also embed images in your posts. For example:
 
-.. image:: {static}/images/placeholder.png
+.. image:: static/images/placeholder.png
    :alt: A placeholder image
    :width: 200px
 
