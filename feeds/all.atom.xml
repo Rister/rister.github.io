@@ -22,7 +22,7 @@
 &lt;div class="section" id="adding-images"&gt;
 &lt;h3&gt;Adding Images&lt;/h3&gt;
 &lt;p&gt;You can also embed images in your posts. For example:&lt;/p&gt;
-&lt;img alt="A placeholder image" src="static/images/placeholder.png" style="width: 200px;" /&gt;
+&lt;img alt="A placeholder image" src="images/placeholder.png" style="width: 200px;" /&gt;
 &lt;p&gt;(Note: You would need to create a &lt;cite&gt;placeholder.png&lt;/cite&gt; in your &lt;cite&gt;content/static/images/&lt;/cite&gt; directory for this to work.)&lt;/p&gt;
 &lt;p&gt;We are now using reStructuredText and it's quite powerful!&lt;/p&gt;
 &lt;/div&gt;
