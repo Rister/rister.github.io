@@ -28,3 +28,18 @@ Specify your coding style and conventions here. For example:
 
 - Use `black` for Python code formatting.
 - Follow PEP 8 guidelines.
+
+## Important Commands
+
+<!--
+List frequently used commands for your project here. For example:
+- `npm install`: Install dependencies
+- `npm test`: Run tests
+- `npm run build`: Build the project
+
+This helps Gemini quickly execute common tasks.
+-->
+
+- `pelican content -s pelicanconf.py`: Build the site
+- `pelican content -s publishconf.py`: Build the site for publishing
+- `python -m pytest`: Run tests
