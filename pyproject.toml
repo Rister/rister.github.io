@@ -31,3 +31,92 @@ packages = ["src/rister_github_io"]
 dev = [
     "ruff>=0.12.2",
 ]
+
+[tool.ruff]
+line-length = 88
+target-version = "py38"
+
+[tool.ruff.lint]
+select = [
+    "E",  # Error
+    "W",  # Warning
+    "F",  # Pyflakes
+    "I",  # Isort
+    "N",  # Naming
+    "D",  # Docstrings
+    "UP", # Pyupgrade
+    "B",  # Bugbear
+    "A",  # Builtins
+    "C4", # Comprehensions
+    "DTZ",# DateTimez
+    "ERA",# Erraneous
+    "ICN",# Icn
+    "ISC",# Isort
+    "NPY",# Numpy
+    "PD", # Pandas
+    "PGH",# Pgh
+    "PIE",# Pie
+    "PL", # Pylint
+    "PT", # Pytest
+    "PTH",# Pathlib
+    "RET",# Ret
+    "RSE",# Rse
+    "RUF",# Ruff
+    "SIM",# Sim
+    "SLF",# Self
+    "TCH",# Typecheck
+    "TID",# Tid
+    "TRY",# Try
+    "YTT",# Ytt
+    "ANN",# Annotations
+    "ASYNC",# Async
+    "BLE",# Ble
+    "COM",# Com
+    "CPY",# Copyright
+    "C90",# C90
+    "DCN",# Dcn
+    "EM", # Em
+    "EXE",# Exe
+    "FA", # Fa
+    "G",  # G
+    "INP",# Inp
+    "INT",# Int
+    "LOG",# Log
+    "PERF",# Perf
+    "Q",  # Q
+    "RST",# Rst
+    "S",  # S
+    "T",  # T
+    "TD", # Td
+    "FIX",# Fix
+    "FURB",# Furb
+    "PERF",# Perf
+    "PIE",# Pie
+    "PL", # Pylint
+    "PT", # Pytest
+    "PTH",# Pathlib
+    "RET",# Ret
+    "RSE",# Rse
+    "RUF",# Ruff
+    "SIM",# Sim
+    "SLF",# Self
+    "TCH",# Typecheck
+    "TID",# Tid
+    "TRY",# Try
+    "YTT",# Ytt
+]
+ignore = [
+    "D100", # Missing docstring in public module
+    "D104", # Missing docstring in public package
+    "D105", # Missing docstring in public method
+    "D107", # Missing docstring in __init__
+    "D203", # 1 blank line required before class docstring
+    "D213", # Multi-line docstring summary should start on the second line
+    "E501", # Line too long (handled by formatter)
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["rister_github_io"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]
