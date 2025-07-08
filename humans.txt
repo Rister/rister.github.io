@@ -1,7 +1,5 @@
 /* TEAM */
-Author: Jeremy Rist
-Role: Owner/Developer
-Contact: jeremy@rist.dev
+Author: Jeremy Rist, Role: Owner/Developer, Contact: jeremy@rist.dev
 
 /* THANKS */
 
