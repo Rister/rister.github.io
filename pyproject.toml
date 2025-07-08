@@ -34,6 +34,7 @@ dev = [
 
 [tool.ruff]
 line-length = 88
+preview = true
 target-version = "py38"
 
 [tool.ruff.lint]
@@ -74,7 +75,6 @@ select = [
     "COM",# Com
     "CPY",# Copyright
     "C90",# C90
-    "DCN",# Dcn
     "EM", # Em
     "EXE",# Exe
     "FA", # Fa
@@ -84,26 +84,9 @@ select = [
     "LOG",# Log
     "PERF",# Perf
     "Q",  # Q
-    "RST",# Rst
     "S",  # S
     "T",  # T
     "TD", # Td
-    "FIX",# Fix
-    "FURB",# Furb
-    "PERF",# Perf
-    "PIE",# Pie
-    "PL", # Pylint
-    "PT", # Pytest
-    "PTH",# Pathlib
-    "RET",# Ret
-    "RSE",# Rse
-    "RUF",# Ruff
-    "SIM",# Sim
-    "SLF",# Self
-    "TCH",# Typecheck
-    "TID",# Tid
-    "TRY",# Try
-    "YTT",# Ytt
 ]
 ignore = [
     "D100", # Missing docstring in public module

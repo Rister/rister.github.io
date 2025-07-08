@@ -1,3 +1,8 @@
+# Copyright (c) 2024 Jeremy Rist. All rights reserved.
+#
+# This work is licensed under the terms of the MIT license.
+# For a copy, see https://opensource.org/licenses/MIT.
+
 # -*- coding: utf-8 -*-
 import logging
 import os
@@ -9,13 +14,14 @@ logger = logging.getLogger(__name__)
 
 DEFAULT_HUMANS_HEADER = """\
 /* TEAM */
+Your title: Your Name.
+Site: Your site
 """
 
 DEFAULT_HUMANS_THANKS = """\
 /* THANKS */
 """
 
-# Default SITE section, includes a dynamic "Last update"
 DEFAULT_HUMANS_SITE = f"""\
 /* SITE */
 Last update: {datetime.now().strftime('%Y/%m/%d')}
@@ -42,19 +48,20 @@ def generate_humans_txt(pelican_object):
         if isinstance(team_section_data, list):
             for item in team_section_data:
                 if isinstance(item, dict):
-                    for key, value in item.items():
-                        humans_content.append(f"{key}: {value}")
+                    # Handle dicts like {'Role': 'Lead', 'Name': 'John Doe'}
+                    humans_content.append(", ".join([f"{k}: {v}" for k, v in item.items()]))
                 else:
+                    # Handle strings like "Lead Developer: John Doe"
                     humans_content.append(str(item))
         elif isinstance(team_section_data, dict):
             for key, value in team_section_data.items():
                 humans_content.append(f"{key}: {value}")
-        else: # Assumed to be a string
+        else:  # Assumed to be a string
             humans_content.append(str(team_section_data))
     else:
         humans_content.append(DEFAULT_HUMANS_HEADER.strip())
 
-    humans_content.append("") # Add a blank line between sections
+    humans_content.append("")  # Add a blank line between sections
 
     # --- THANKS Section ---
     thanks_section_data = get_setting(pelican_object, 'HUMANS_THANKS', None)
@@ -63,19 +70,18 @@ def generate_humans_txt(pelican_object):
         if isinstance(thanks_section_data, list):
             for item in thanks_section_data:
                 if isinstance(item, dict):
-                    for key, value in item.items():
-                        humans_content.append(f"{key}: {value}")
+                    humans_content.append(", ".join([f"{k}: {v}" for k, v in item.items()]))
                 else:
                     humans_content.append(str(item))
         elif isinstance(thanks_section_data, dict):
             for key, value in thanks_section_data.items():
                 humans_content.append(f"{key}: {value}")
-        else: # Assumed to be a string
+        else:  # Assumed to be a string
             humans_content.append(str(thanks_section_data))
     else:
         humans_content.append(DEFAULT_HUMANS_THANKS.strip())
 
-    humans_content.append("") # Add a blank line between sections
+    humans_content.append("")  # Add a blank line between sections
 
     # --- SITE Section ---
     site_section_data = get_setting(pelican_object, 'HUMANS_SITE', None)
@@ -84,29 +90,25 @@ def generate_humans_txt(pelican_object):
         if isinstance(site_section_data, list):
             for item in site_section_data:
                 if isinstance(item, dict):
-                    for key, value in item.items():
-                        site_content_lines.append(f"{key}: {value}")
+                    site_content_lines.append(", ".join([f"{k}: {v}" for k, v in item.items()]))
                 else:
                     site_content_lines.append(str(item))
         elif isinstance(site_section_data, dict):
             for key, value in site_section_data.items():
                 site_content_lines.append(f"{key}: {value}")
-        else: # Assumed to be a string
+        else:  # Assumed to be a string
             site_content_lines.append(str(site_section_data))
 
-        # Ensure "Last update" is present and correctly formatted.
         # Remove any existing "Last update" from custom data to avoid duplicates.
         site_content_lines = [line for line in site_content_lines if not line.lower().startswith("last update:")]
         site_content_lines.append(f"Last update: {datetime.now().strftime('%Y/%m/%d')}")
         humans_content.extend(site_content_lines)
     else:
-        # Use default if no custom data; DEFAULT_HUMANS_SITE already includes "Last update".
         humans_content.append(DEFAULT_HUMANS_SITE.strip())
 
-    # Ensure there's a blank line before the actual content if the file is not empty,
-    # and ensure a single trailing newline for the file.
+    # Join all content and ensure a single trailing newline for the file.
     final_output = "\n".join(humans_content).strip()
-    if final_output: # Avoid writing just a newline if content is empty (should not happen with defaults)
+    if final_output:  # Avoid writing just a newline if content is empty (should not happen with defaults)
         final_output += "\n"
 
     try:
