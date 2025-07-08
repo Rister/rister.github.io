@@ -41,6 +41,7 @@ List frequently used commands for your project here. For example:
 This helps Gemini quickly execute common tasks.
 -->
 
+- `uv add <package>`: Add a new project dependency.
 - `uv sync`: Install/sync project dependencies.
 - `uv run ruff check .`: Run linting checks.
 - `uv run ruff format .`: Format code.
