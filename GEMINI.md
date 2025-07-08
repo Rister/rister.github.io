@@ -42,6 +42,7 @@ This helps Gemini quickly execute common tasks.
 -->
 
 - `uv add <package>`: Add a new project dependency.
+- `uv add --dev <package>`: Add a new development dependency.
 - `uv sync`: Install/sync project dependencies.
 - `uv run ruff check .`: Run linting checks.
 - `uv run ruff format .`: Format code.
