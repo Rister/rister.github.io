@@ -27,7 +27,7 @@ Specify your coding style and conventions here. For example:
 -->
 
 - Use `uv` for python project and dependency management.
-- Use `ruff` for Python code formatting and linting.
+- Use `ruff` for Python code formatting and linting, with extensive rules for PEP-8, docstrings, isort, etc.
 - Follow PEP 8 guidelines.
 
 ## Important Commands
@@ -41,6 +41,9 @@ List frequently used commands for your project here. For example:
 This helps Gemini quickly execute common tasks.
 -->
 
+- `uv sync`: Install/sync project dependencies.
+- `uv run ruff check .`: Run linting checks.
+- `uv run ruff format .`: Format code.
 - `pelican content -s pelicanconf.py`: Build the site
 - `pelican content -s publishconf.py`: Build the site for publishing
 - `python -m pytest`: Run tests
@@ -79,9 +82,7 @@ For example, you might tell Gemini to:
 - Always ask for confirmation before making significant changes.
 - When suggesting code, provide examples that are directly applicable to the project's existing codebase.
 - Maintain a tidy code base.
-    - Make sure code is readable
-    - Ensure that comments explain:
-        - Non-obvious WHY
-        - Confusing WHAT
-        - A HOW that is NOT intuitive
-    - Create Comments to group code in a logical fashion.
+    - Ensure code is clear and avoids obfuscation or esoteric techniques.
+    - Use docstrings for full documentation of modules, classes, and functions/methods.
+    - Use other comments to clarify smaller, non-obvious, confusing, or non-intuitive sections of code.
+    - Create comments to group code in a logical fashion.
