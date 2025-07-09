@@ -507,7 +507,8 @@ main {
   width: calc(100vw - 10rem);
   min-height: calc(100vh - 10rem);
   box-shadow: -0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
-  margin: 5rem;
+  margin: 1rem; /* Further reduced margin */
+  padding: 2rem; /* Added padding */
   font-size: 1rem;
   background-image: linear-gradient(to bottom, #fff calc(1em - 1px), #ccc calc(1em - 1px), #ccc 1em, #fff 1em);
   background-position: 0% 1em;
