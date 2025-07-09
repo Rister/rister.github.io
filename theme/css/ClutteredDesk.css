@@ -35,8 +35,6 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-size: 2.2em;
-    border-bottom: 1px solid #dce4f0; /* Match horizontal lines */
-    padding-bottom: 0.3em;
 }
 
 h2 {
@@ -498,4 +496,36 @@ aside.sidebar {
 .icon-style-3 .fa-sticky-note {
     color: #1dd1a1; /* A greenish color */
     transform: rotate(-2deg);
+}
+
+/* Lifted paper effect for h1 and h2 */
+h1, h2 {
+    position: relative;
+    background: #fffef0; /* Using the same paper color as articles */
+    padding: 25px;
+    border: 1px solid #eee;
+    border-radius: 2px;
+    margin-bottom: 30px; /* Add some space below */
+}
+
+h1:before, h1:after,
+h2:before, h2:after {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 15px;
+    left: 10px;
+    width: 50%;
+    top: 80%;
+    max-width:300px;
+    background: #777;
+    box-shadow: 0 15px 10px #777;
+    transform: rotate(-3deg);
+}
+
+h1:after,
+h2:after {
+    transform: rotate(3deg);
+    right: 10px;
+    left: auto;
 }
