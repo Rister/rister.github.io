@@ -203,22 +203,44 @@ nav ul li.active a { /* If we add an active class later */
     margin-right: 10px;
 }
 
-/* Code blocks - give them a slightly different feel */
+/* Code blocks - styled to look like perforated paper */
 pre {
-    background-color: #f0f0f0; /* Light grey background */
-    border: 1px solid #ddd;
-    padding: 10px;
-    overflow-x: auto; /* Allow horizontal scrolling for long lines */
-    font-family: 'Consolas', 'Monaco', monospace; /* Different font for code */
-    line-height: 1.4; /* Adjust line height for code */
-    border-radius: 3px;
+    --f: .7; /* fraction of line the hole occupies */
+    --b: 1.5lh; /* at least 1lh to fit hole area */
+    --l: 2px; /* dashed line thickness */
+    --paper-bg: #f8f8f2; /* Subtle off-white, common in code themes */
+    --line-color: #e0e0e0; /* Light grey for lines/perforations */
+
+    display: block;
+    margin: 1em auto;
+    border: solid 0 #0000; /* Transparent border */
+    border-width: 0 var(--b); /* Use variable for border width (hole area) */
+    padding: 10px 1ch; /* Keep existing vertical padding, adjust horizontal */
+    max-width: 100%; /* Allow it to take available width */
+    border-radius: 3px; /* Keep existing border-radius */
+    background:
+        conic-gradient(at var(--l), #0000 75%, var(--line-color) 0) /* Dashed line */
+        0 -.125lh / calc(100% - var(--l)) .5lh padding-box, /* Position and size of dashed line */
+        linear-gradient(var(--paper-bg) 50%, var(--paper-bg) 0) 0 0 / 1% 2lh; /* Base paper background */
+    font-family: 'IBM Plex Mono', 'Consolas', 'Monaco', monospace; /* Updated font stack */
+    font-size: 0.95em; /* Slightly adjust font size if needed */
+    line-height: 1.5; /* Standard line height for code */
+    tab-size: 4; /* Common tab size */
+    white-space: pre-wrap; /* Keep existing white-space behavior */
+    overflow-x: auto; /* Keep existing overflow behavior */
+    mask:
+        radial-gradient(calc(.5*var(--f)*1lh) at calc(.5*var(--b)), #0000 calc(100% - 1px), red) /* Perforation holes */
+        0 0 / calc(100% - var(--b)) 1lh no-clip; /* Position and size of mask */
+    color: #333; /* Text color */
 }
 
 code {
-    font-family: 'Consolas', 'Monaco', monospace;
-    background-color: #f0f0f0; /* Match pre for inline code */
-    padding: 2px 4px;
+    font-family: 'IBM Plex Mono', 'Consolas', 'Monaco', monospace; /* Match pre font */
+    background-color: #eef0f2; /* Slightly different, very light grey for inline code */
+    padding: 3px 5px; /* Adjusted padding */
     border-radius: 3px;
+    font-size: 0.9em; /* Slightly smaller than pre */
+    color: #333; /* Text color for inline code */
 }
 
 blockquote {
