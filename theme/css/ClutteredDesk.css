@@ -35,6 +35,8 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-size: 2.2em;
+    border-bottom: 1px solid #dce4f0; /* Match horizontal lines */
+    padding-bottom: 0.3em;
 }
 
 h2 {
@@ -498,18 +500,25 @@ aside.sidebar {
     transform: rotate(-2deg);
 }
 
-/* Lifted paper effect for h1 and h2 */
-h1, h2 {
+/* Lifted paper effect for h1 and h2 in articles */
+article.hentry h1, article.hentry h2 {
     position: relative;
-    background: #fffef0; /* Using the same paper color as articles */
     padding: 25px;
     border: 1px solid #eee;
-    border-radius: 2px;
-    margin-bottom: 30px; /* Add some space below */
+    border-radius: 4px;
+    margin-bottom: 40px; /* Increased margin to accommodate shadow */
+    --f: .7; /* fraction of line the hole occupies */
+    --b: 1.5lh; /* at least 1lh to fit hole area */
+    --l: 2px; /* dashed line thickness */
+    --line-color: #e0e0e0; /* Light grey for lines/perforations */
+    border-width: 0 var(--b);
+    mask:
+        radial-gradient(calc(.5*var(--f)*1lh) at calc(.5*var(--b)), #0000 calc(100% - 1px), red)
+        0 0 / calc(100% - var(--b)) 1lh no-clip;
 }
 
-h1:before, h1:after,
-h2:before, h2:after {
+article.hentry h1:before, article.hentry h1:after,
+article.hentry h2:before, article.hentry h2:after {
     z-index: -1;
     position: absolute;
     content: "";
@@ -523,9 +532,22 @@ h2:before, h2:after {
     transform: rotate(-3deg);
 }
 
-h1:after,
-h2:after {
+article.hentry h1:after,
+article.hentry h2:after {
     transform: rotate(3deg);
     right: 10px;
     left: auto;
+}
+
+/* Pastel colors for headings */
+article.hentry h1:nth-of-type(3n+1), article.hentry h2:nth-of-type(3n+1) {
+    background-color: #fff8b0; /* Yellow */
+}
+
+article.hentry h1:nth-of-type(3n+2), article.hentry h2:nth-of-type(3n+2) {
+    background-color: #c1e1c1; /* Green */
+}
+
+article.hentry h1:nth-of-type(3n+3), article.hentry h2:nth-of-type(3n+3) {
+    background-color: #aec6cf; /* Blue */
 }
