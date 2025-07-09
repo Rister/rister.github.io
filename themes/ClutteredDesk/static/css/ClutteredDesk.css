@@ -461,20 +461,20 @@ aside.sidebar {
     header.main-header {
         margin-right: 0; /* Remove right margin */
         margin-bottom: 20px; /* Add bottom margin */
-        /* Optionally, make post-it wider on small screens if not square */
-        /* width: 90%; max-width: 300px; height: auto; aspect-ratio: 1/1; */
-        /* For now, keeping it square 200x200 */
-    }
+/*        /* Optionally, make post-it wider on small screens if not square */
+/*        /* width: 90%; max-width: 300px; height: auto; aspect-ratio: 1/1; */
+/*        /* For now, keeping it square 200x200 */
+/*    }
 
     .top-area-wrapper nav {
         /* Reset any specific padding added for side-by-side alignment */
-        padding-top: 0;
+/*        padding-top: 0;
         width: 100%; /* Allow nav to take full width */
-    }
+/*    }
 
     .top-area-wrapper nav ul {
         text-align: center; /* Center nav items when stacked */
-    }
+/*    }
 }
 
 /* Sticker number styles have been removed */
@@ -500,3 +500,39 @@ aside.sidebar {
     transform: rotate(-2deg);
 }
 
+/* Styling for main tag based on CodePen example */
+main {
+  position: relative;
+  background-color: #fff;
+  width: calc(100vw - 10rem);
+  min-height: calc(100vh - 10rem);
+  box-shadow: -0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  margin: 5rem;
+  font-size: 2rem;
+  background-image: linear-gradient(to bottom, #fff calc(1em - 1px), #ccc calc(1em - 1px), #ccc 1em, #fff 1em);
+  background-position: 0% 1em;
+  background-size: 100% 1em;
+  background-repeat: repeat-y;
+}
+
+main:before,
+main:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+main:before {
+  transform: rotate(-2deg);
+  z-index: -1;
+}
+
+main:after {
+  transform: rotate(2deg);
+  z-index: -2;
+}
